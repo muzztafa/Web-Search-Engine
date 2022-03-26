@@ -1,0 +1,1434 @@
+<!doctype html>
+<html lang="en"> 
+ <head> 
+  <meta charset="UTF-8"> 
+  <meta name="keywords" content="programming, code online, snippet, snippets, code debugging, run code, execute code, C, C++, Java"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+  <meta http-equiv="Content-type" content="text/html;charset=UTF-8"> 
+  <title>IDE | GeeksforGeeks | A computer science portal for geeks</title> 
+  <link rel="icon" href="/images/gfglogo.ico" type="image/x-icon"> 
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Ubuntu|Lato|Noto+Sans|Nunito|Baloo+Bhai|Montserrat" rel="stylesheet"> 
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"> 
+  <link rel="stylesheet" href="css/style-2.2.css"> 
+  <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css"> 
+  <link rel="stylesheet" href="css/header-footer.css"> 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> 
+  <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script> 
+  <script src="js/clipboard.min.js"></script> 
+  <script type="text/javascript">
+		var editor = null;
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-37433965-2', 'auto');ga('send', 'pageview');
+	</script> 
+  <script defer src="https://ide.geeksforgeeks.org/ace-builds/src-min/ace.js" onload="editor = ace.edit('editor')"></script> 
+  <script defer src="https://ide.geeksforgeeks.org/ace-builds/src-min/ext-themelist.js"></script> 
+  <script defer src="https://ide.geeksforgeeks.org/ace-builds/src-min/ext-language_tools.js"></script> 
+  <script defer src="js/gfg-4.4.js?v=2.5"></script> 
+  <script async src="js/header-footer.js"></script> <!--[if lt IE 9]>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js" type="text/javascript"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js" type="text/javascript"></script>
+	<![endif]--> 
+  <script async src="https://www.googletagservices.com/tag/js/gpt.js"></script> 
+  <script>
+		var googletag = googletag || {};
+		googletag.cmd = googletag.cmd || [];
+	</script> 
+  <script type="text/javascript">
+		var gptAdSlots = [];
+		googletag.cmd.push(function() {
+			var horizontalWLT1201HLT181Sizes = googletag.sizeMapping().addSize([1600, 768], [[88,31], [120,20], [120,30], [120,60], [120,90], [125,125], [168,28], [168,42], [180,150], [216,36], [216,54], [220,90], [234,60], [240,133], [292,30], [300,31], [300,50], [300,75], [300,100], [320,50], [320,100], [468,60], [728,90], [750,100], [930,180], [950,90], [960,90], [970,66], [970,90], [980,90], [980,120]])
+				.addSize([1025, 300], [[88,31], [120,20], [120,30], [120,60], [120,90], [125,125], [168,28], [168,42], [180,150], [216,36], [216,54], [220,90], [234,60], [240,133], [292,30], [300,31], [300,50], [300,75], [300,100], [320,50], [320,100], [468,60], [728,90], [750,100]])
+				.addSize([0, 0],[[88,31], [120,20], [120,30], [120,60], [120,90], [125,125], [168,28], [168,42], [180,150], [216,36], [216,54], [220,90], [234,60], [240,133]]).build();
+
+			var verticalLT337Sizes = googletag.sizeMapping()
+				.addSize([1200, 768], [[88,31], [120,20], [120,30], [120,60], [120,90], [120,240], [120,600], [125,125], [160,600], [168,28], [168,42], [180,150], [200,200], [200,446], [216,36], [216,54], [220,90], [234,60], [240,133], [240,400], [250,250], [250,360], [292,30], [300,31], [300,50], [300,75], [300,100], [300,250], [300,600], [300,1050], [320,50], [320,100], [320,480], [336,280]])
+				.addSize([728, 300], [[88,31], [120,20], [120,30], [120,60], [120,90], [120,240], [120,600], [125,125], [160,600], [168,28], [168,42], [180,150], [200,200], [200,446], [216,36], [216,54], [220,90], [234,60], [240,133], [240,400], [250,250]])
+				.addSize([0, 0], [160,600]).build();
+
+			gptAdSlots[0] = googletag.defineSlot('/27823234/IDE/Horizontal_W<1201_H<181', [[88,31], [120,20], [120,30], [120,60], [120,90], [125,125], [168,28], [168,42], [180,150], [216,36], [216,54], [220,90], [234,60], [240,133], [292,30], [300,31], [300,50], [300,75], [300,100], [320,50], [320,100], [468,60], [728,90], [750,100], [930,180], [950,90], [960,90], [970,66], [970,90], [980,90], [980,120]], 'div-gpt-ad-1525180449717-0').defineSizeMapping(horizontalWLT1201HLT181Sizes).addService(googletag.pubads());
+			gptAdSlots[1] = googletag.defineSlot('/27823234/IDE/Vertical_W<337', [[88,31], [120,20], [120,30], [120,60], [120,90], [120,240], [120,600], [125,125], [160,600], [168,28], [168,42], [180,150], [200,200], [200,446], [216,36], [216,54], [220,90], [234,60], [240,133], [240,400], [250,250], [250,360], [292,30], [300,31], [300,50], [300,75], [300,100], [300,250], [300,600], [300,1050], [320,50], [320,100], [320,480], [336,280]], 'div-gpt-ad-1525243586160-0').defineSizeMapping(verticalLT337Sizes).addService(googletag.pubads());
+			gptAdSlots[2] = googletag.defineSlot('/27823234/IDE/Vertical_W<337', [[88,31], [120,20], [120,30], [120,60], [120,90], [120,240], [120,600], [125,125], [160,600], [168,28], [168,42], [180,150], [200,200], [200,446], [216,36], [216,54], [220,90], [234,60], [240,133], [240,400], [250,250], [250,360], [292,30], [300,31], [300,50], [300,75], [300,100], [300,250], [300,600], [300,1050], [320,50], [320,100], [320,480], [336,280]], 'div-gpt-ad-1525243586160-1').defineSizeMapping(verticalLT337Sizes).addService(googletag.pubads());
+			gptAdSlots[3] = googletag.defineSlot('/27823234/IDE/Horizontal_W<1201_H<181', [[88,31], [120,20], [120,30], [120,60], [120,90], [125,125], [168,28], [168,42], [180,150], [216,36], [216,54], [220,90], [234,60], [240,133], [292,30], [300,31], [300,50], [300,75], [300,100], [320,50], [320,100], [468,60], [728,90], [750,100], [930,180], [950,90], [960,90], [970,66], [970,90], [980,90], [980,120]], 'div-gpt-ad-1525180449717-1').defineSizeMapping(horizontalWLT1201HLT181Sizes).addService(googletag.pubads());
+			/*
+			gptAdSlots[0] = googletag.defineSlot('/27823234/IDE/Vertical_W<337', [[88,31], [120,20], [120,30], [120,60], [120,90], [120,240], [120,600], [125,125], [160,600], [168,28], [168,42], [180,150], [200,200], [200,446], [216,36], [216,54], [220,90], [234,60], [240,133], [240,400], [250,250], [250,360], [292,30], [300,31], [300,50], [300,75], [300,100], [300,250], [300,600], [300,1050], [320,50], [320,100], [320,480], [336,280]], 'div-gpt-ad-1525243586160-0').defineSizeMapping(verticalLT337Sizes).addService(googletag.pubads());
+			gptAdSlots[1] = googletag.defineSlot('/27823234/IDE/Vertical_W<337', [[88,31], [120,20], [120,30], [120,60], [120,90], [120,240], [120,600], [125,125], [160,600], [168,28], [168,42], [180,150], [200,200], [200,446], [216,36], [216,54], [220,90], [234,60], [240,133], [240,400], [250,250], [250,360], [292,30], [300,31], [300,50], [300,75], [300,100], [300,250], [300,600], [300,1050], [320,50], [320,100], [320,480], [336,280]], 'div-gpt-ad-1525243586160-1').defineSizeMapping(verticalLT337Sizes).addService(googletag.pubads());
+			gptAdSlots[2] = googletag.defineSlot('/27823234/IDE/Horizontal_W<1201_H<181', [[88,31], [120,20], [120,30], [120,60], [120,90], [125,125], [168,28], [168,42], [180,150], [216,36], [216,54], [220,90], [234,60], [240,133], [292,30], [300,31], [300,50], [300,75], [300,100], [320,50], [320,100], [468,60], [728,90], [750,100], [930,180], [950,90], [960,90], [970,66], [970,90], [980,90], [980,120]], 'div-gpt-ad-1525180449717-1').defineSizeMapping(horizontalWLT1201HLT181Sizes).addService(googletag.pubads());
+			*/
+			googletag.pubads().enableSingleRequest();
+			googletag.pubads().collapseEmptyDivs();
+			googletag.enableServices();
+		});
+	</script> 
+  <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script> 
+  <script>
+        window.addEventListener("load", function(){
+        window.cookieconsent.initialise({
+        "palette": {
+            "popup": {
+              "background": "#3c404d",
+              "text": "#d6d6d6"
+            },
+            "button": {
+              "background": "#8bed4f"
+            }
+          },
+          "theme": "classic",
+            onStatusChange: function(status) {
+            
+            },
+            law: {
+              regionalLaw: false,
+            },
+            location: true,
+            "content": {
+            "message": "We use cookies to ensure you have the best browsing experience on our website. By using our site, you acknowledge that you have read and understood our <a href=\"https://www.geeksforgeeks.org/cookie-policy/\" class=\"cc-link\" target=\"_blank\">Cookie Policy</a> & ",
+            "link": "Privacy Policy",
+            "href": "https://www.geeksforgeeks.org/privacy-policy/"
+            },
+        cookie: {
+        name : "geeksforgeeks_consent_status",
+        }
+        })});
+    
+        </script> 
+  <script src="https://accounts.google.com/gsi/client" async defer></script> 
+ </head>
+ <body style="margin: 0;" class="header-body">
+  <div id="g_id_onload" data-client_id="388036620207-3uolk1hv6ta7p3r9l6s3bobifh086qe1.apps.googleusercontent.com" data-login_uri="https://auth.geeksforgeeks.org/oauth/google.php"  data-state_cookie_domain="geeksforgeeks.org" data-redirect="https://ide.geeksforgeeks.org/?ref=ndm" data-cancel_on_tap_outside="false"></div>   <i id="utoken" style="display:none"></i> 
+  <div class="header-main__wrapper stick-me"> <a href="index.php" class="header-main__logo"> 
+    <div class="_logo"> 
+     <svg xmlns="http://www.w3.org/2000/svg" width="76.533" height="39.026" viewbox="0 0 76.533 39.026"> <path d="M2380.7,6597.866a12.252,12.252,0,0,0-.261-1.513l-30.726-.027a12.545,12.545,0,0,1,.908-3.443,12.337,12.337,0,0,1,2.739-4.044,12.151,12.151,0,0,1,4.018-2.581,12.634,12.634,0,0,1,14.3,3.051l4.852-4.748a18.176,18.176,0,0,0-6.131-4.331,20.037,20.037,0,0,0-8.112-1.564,20.25,20.25,0,0,0-7.671,1.459,19.158,19.158,0,0,0-6.261,4.07,19.584,19.584,0,0,0-4.226,6.184,18.7,18.7,0,0,0-1.487,5.947h-.2a18.674,18.674,0,0,0-1.489-5.947,19.544,19.544,0,0,0-4.226-6.184,19.133,19.133,0,0,0-6.261-4.07,21.354,21.354,0,0,0-15.783.1,18.2,18.2,0,0,0-6.131,4.331l4.853,4.748a13.264,13.264,0,0,1,14.3-3.051,12.131,12.131,0,0,1,4.017,2.581,12.323,12.323,0,0,1,2.74,4.044,12.527,12.527,0,0,1,.908,3.443l-30.726.027a12.256,12.256,0,0,0-.261,1.513,15,15,0,0,0-.1,1.773,20.713,20.713,0,0,0,1.1,6.783,15.709,15.709,0,0,0,3.443,5.686,17.309,17.309,0,0,0,6,4.123,20.587,20.587,0,0,0,7.983,1.46,20.226,20.226,0,0,0,7.669-1.46,19.086,19.086,0,0,0,6.261-4.07,19.506,19.506,0,0,0,4.226-6.184,18.163,18.163,0,0,0,1.153-3.629h.871a18.27,18.27,0,0,0,1.151,3.629,19.545,19.545,0,0,0,4.226,6.184,19.111,19.111,0,0,0,6.261,4.07,20.241,20.241,0,0,0,7.671,1.46,20.572,20.572,0,0,0,7.981-1.46,17.282,17.282,0,0,0,6-4.123,15.717,15.717,0,0,0,3.445-5.686,20.726,20.726,0,0,0,1.1-6.783A15.259,15.259,0,0,0,2380.7,6597.866Zm-46.245,5.608a12.1,12.1,0,0,1-2.766,4.043,12.467,12.467,0,0,1-4.043,2.583,14.378,14.378,0,0,1-9.939.052,11.776,11.776,0,0,1-3.522-2.218,8.459,8.459,0,0,1-1.8-2.374,13.476,13.476,0,0,1-1.173-3.208l23.658,0A11.487,11.487,0,0,1,2334.457,6603.475Zm38.236,2.086a8.466,8.466,0,0,1-1.8,2.374,11.771,11.771,0,0,1-3.522,2.218,14.378,14.378,0,0,1-9.939-.052,12.491,12.491,0,0,1-4.044-2.583,12.088,12.088,0,0,1-2.765-4.043,11.427,11.427,0,0,1-.415-1.126h11.92v0h11.739A13.509,13.509,0,0,1,2372.692,6605.561Z" transform="translate(-2304.273 -6578.666)" fill="#2f8d46" /> 
+     </svg> 
+     <svg xmlns="http://www.w3.org/2000/svg" width="45.42" height="24.603" viewbox="0 0 39.42 18.603">
+      <defs>
+       <style>.a{fill:#0f2b3c;}</style>
+      </defs><path class="a" d="M6.021,0V-18.6H2.268V0Zm4.536-18.6V0h7.29a8.278,8.278,0,0,0,5.81-2.211A9.455,9.455,0,0,0,26.3-9.261c0-5.292-3.1-9.342-8.451-9.342ZM14.31-3.321V-15.282h3.537c3.1,0,4.7,2.835,4.7,6.021s-1.593,5.94-4.7,5.94ZM33.534-7.479h6.939v-3.375H33.534v-4.428h7.911V-18.6H29.781V0H41.688V-3.321H33.534Z" transform="translate(-2.268 18.603)" />
+     </svg> 
+    </div> </a> 
+   <div class="header-main__container"> <span class="hamburger-menu"> <!-- sidebar on tab and mobile view --> <span class="gfg-burger-1"></span> <span class="gfg-burger-2"></span> <span class="gfg-burger-3"></span> </span> 
+    <ul class="header-main__list"> 
+     <li class="dropdown header-main__list-item" data-expandable="true"> <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span>Theme</span></a> <i class="material-icons header-main__list-item-caret">keyboard_arrow_down</i> 
+      <ul class="mega-dropdown dropdown-menu"> 
+       <li class="theme"><a href="javascript:void(0)">Light</a></li> 
+       <li class="theme"><a href="javascript:void(0)">Dark</a></li> 
+      </ul> </li> 
+    </ul> 
+    <ul class="header-main__left-list" data-type="0" data-nl="false"> 
+     <li class="header-main__left-list-item profile-head" style="margin-top: auto;margin-bottom: auto;" aria-expanded="false" data-expandable="false"> <a type="button" class="header-main__signup login-modal-btn" href="https://auth.geeksforgeeks.org/?to=https%3A%2F%2Fide.geeksforgeeks.org%2F%3Fref%3Dndm">Sign In</a> </li> 
+    </ul> 
+   </div> 
+   <div class="gfg-overlay display-none" id="gfg-overlay"></div> 
+   <div class="header-sidebar__wrapper"> 
+    <ul class="header-sidebar__list"> 
+     <li class="header-sidebar__list-item"><a href="https://auth.geeksforgeeks.org/?to=https%3A%2F%2Fide.geeksforgeeks.org%2F%3Fref%3Dndm" class="gfg-sec-bg color-white login-modal-btn" style="color: white!important; text-align: center; padding : 10px!important;" target="_self">Sign In</a> </li> 
+     <li class="header-sidebar__list-item"> <a href="report.php">Report Bug</a> </li> 
+     <li class="dropdown header-sidebar__list-item"> <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Theme <span class="caret"></span></a> 
+      <ul class="dropdown-menu theme-sidebar"> 
+       <li class="theme"><a href="javascript:void(0)">Light</a></li> 
+       <li class="theme"><a href="javascript:void(0)">Dark</a></li> 
+      </ul> </li> 
+    </ul> 
+    <div class="" style="height: 80px;"></div> 
+   </div> 
+  </div> <!-- header-main__wrapper stick-me --> 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"> 
+  <link rel="stylesheet" href="https://authcdn.geeksforgeeks.org/css/bootstrap-social.css"> 
+  <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&amp;render=explicit" async defer></script> 
+  <script src="https://apis.google.com/js/platform.js"></script> 
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en"> 
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> 
+  <style>
+  *,
+  *:after,
+  *:before{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  .login-modal-div form{
+    margin-bottom: 14px;
+  }
+
+  .login-modal-div input[type=checkbox]{
+    display: inline-block !important;
+  }
+
+  /* The Modal (background) */
+  .login-modal-div{
+    font-family: 'RobotoDraft', 'Roboto', 'Helvetica Neue, Helvetica, Arial', sans-serif;
+    display: none;
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    padding-top: 70px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+
+  /* Modal Content */
+  .login-modal-div .modal-content{
+    background-color: #eff1f3;
+    margin: auto;
+    padding-top: 20px;
+    border: 1px solid #888;
+    width: 550px;
+    border-radius: 5px;
+  }
+
+  /* The Close Button */
+  .login-modal-div .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .login-modal-div .close:hover,
+  .login-modal-div .close:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+  }
+
+  .login-modal-div img.logo{
+    width: 250px;
+  }
+
+  .login-modal-div .white-bg{
+    background-color: #fff;
+  }
+
+  .login-modal-div .close-div{
+    height: 30px;
+    padding: 0 20px;
+  }
+
+  .login-modal-div .modal-header{
+    padding: 20px;
+    border-radius: 5px;
+  }
+
+  .login-modal-div .center{
+    text-align: center;
+  }
+
+  .login-modal-div .alert{
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+  }
+
+  .login-modal-div #extra .alert-danger, .login-modal-div .extra .alert-danger{
+    color: #f1270b;
+    background-color: transparent; 
+    border-color: #f65039;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.3;
+  }
+
+  .login-modal-div #extra .alert-info, .login-modal-div .extra .alert-info{
+    color: #1583ed;
+    background-color: transparent;
+    border-color: #418bf9;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.3;
+  }
+
+  .login-modal-div input[type=text],
+  .login-modal-div input[type=email],
+  .login-modal-div input[type=password]{
+    border: 1px solid #C2C7D0;
+    border-top-color: rgb(194, 199, 208);
+    border-right-color: rgb(194, 199, 208);
+    border-bottom-color: rgb(194, 199, 208);
+    border-left-color: rgb(194, 199, 208);
+    border-radius: 5px;
+    box-shadow: inset 0 1px 2px rgba(151,159,175,0.1),inset 0 1px 15px rgba(151,159,175,0.05);
+    box-sizing: border-box;
+    color: #39424e;
+    display: inline-block;
+    line-height: 1.5em;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 10px;
+    padding: 7px 10px;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    width: 100%;
+  }
+
+  .modal-form-group{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    position: relative;
+  }
+
+  .modal-form-group .input-icon{
+    position: absolute;
+    z-index: 1;
+    left: 8px;
+    top: 10px;
+    color: #979faf;
+    font-size: 26px;
+  }
+
+  .modal-form-group .modal-form-input{
+    display: block !important;
+    padding: 15px 8px 8px 45px !important;
+    height: auto !important;
+    width: 450px;
+  }
+
+  .modal-form-group .modal-form-input:focus{
+    border-color: #0f9d58;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 5px rgba(78, 236, 141, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 5px rgba(78, 236, 141, 0.6);
+  }
+
+  .modal-form-group .modal-form-input.error-focus, .modal-form-group .modal-form-input.error-focus:focus{
+    border-color: #ef1313;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 5px rgba(177, 74, 71, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 5px rgba(177, 74, 71, 0.6);
+  }
+
+  .modal-form-group .modal-form-input::placeholder{
+    color: #999;
+    font-weight: 400;
+    font-size: 16px;
+  }
+
+  @media(max-width: 768px){
+    .login-modal-div{
+      padding-top: 30px;
+    }
+
+    .login-modal-div .modal-content{
+      width: 90%;
+    }
+
+    .modal-form-group .modal-form-input{
+      width: 100%;
+    }
+  }
+
+  .login-modal-div .modal-header section{
+    display: none;
+    padding: 20px 30px 30px 30px;
+    border: 1px solid #ddd;
+    border-bottom: none;
+  }
+
+  .login-modal-div .modal-header input[type=radio]{
+    display: none;
+  }
+
+  .login-modal-div .modal-header label.tab-label{
+    display: inline-block;
+    margin: 0 0 -1px;
+    padding: 15px 25px;
+    font-weight: 600;
+    text-align: center;
+    color: #888;
+    border: 1px solid transparent;
+    width: 50%;
+    padding-bottom: 12px;
+    font-size: 20px;
+    border-bottom-width: 4px;
+    background-color: #e9ebee;
+  }
+
+  .login-modal-div .modal-header label.tab-label:first-of-type{
+    float: left;
+  }
+
+  .login-modal-div .modal-header label.tab-label:before{
+    font-weight: normal;
+    margin-right: 10px;
+  }
+
+  .login-modal-div .modal-header label:hover{
+    color: #888;
+    cursor: pointer;
+  }
+
+  .login-modal-div .modal-header input:checked + label.tab-label{
+    color: #555;
+    border: 1px solid #ddd;
+    border-top: 2px solid #0f9d58;
+    border-bottom: 3px solid #fff;
+    background-color: #fff;
+  }
+
+  .login-modal-div .modal-header #tab1:checked ~ #content1,
+  .login-modal-div .modal-header #tab2:checked ~ #content2{
+    display: block;
+  }
+
+  @media screen and (max-width: 650px) {
+    .login-modal-div .modal-header label.tab-label:before{
+      margin: 0;
+      font-size: 18px;
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    .login-modal-div .modal-header label.tab-label{
+      padding: 15px;
+    }
+  }
+
+  /* css for overlay loading spinner */
+
+  /* Absolute Center Spinner */
+  .spinner-loading-overlay {
+    position: fixed;
+    display: none;
+    z-index: 1001;
+    height: 2em;
+    width: 2em;
+    overflow: show;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+
+  /* Transparent Overlay */
+  .spinner-loading-overlay:before {
+    content: '';
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(239,236,233,0.7);
+  }
+
+  .spinner-loading-overlay:not(:required):after {
+    content: '';
+    display: block;
+    font-size: 20px;
+    width: 0.6em;
+    height: 0.6em;
+    margin-top: -0.5em;
+    -webkit-animation: spinner 1500ms infinite linear;
+    -moz-animation: spinner 1500ms infinite linear;
+    -ms-animation: spinner 1500ms infinite linear;
+    -o-animation: spinner 1500ms infinite linear;
+    animation: spinner 1500ms infinite linear;
+    border-radius: 0.5em;
+    -webkit-box-shadow: rgba(15, 157, 88, 0.75) 1.5em 0 0 0, rgba(15, 157, 88, 0.75) 1.1em 1.1em 0 0, rgba(15, 157, 88, 0.75) 0 1.5em 0 0, rgba(15, 157, 88, 0.75) -1.1em 1.1em 0 0, rgba(15, 157, 88, 0.75) -1.5em 0 0 0, rgba(15, 157, 88, 0.75) -1.1em -1.1em 0 0, rgba(15, 157, 88, 0.75) 0 -1.5em 0 0, rgba(15, 157, 88, 0.75) 1.1em -1.1em 0 0;
+    box-shadow: rgba(15, 157, 88, 0.75) 1.5em 0 0 0, rgba(15, 157, 88, 0.75) 1.1em 1.1em 0 0, rgba(15, 157, 88, 0.75) 0 1.5em 0 0, rgba(15, 157, 88, 0.75) -1.1em 1.1em 0 0, rgba(15, 157, 88, 0.75) -1.5em 0 0 0, rgba(15, 157, 88, 0.75) -1.1em -1.1em 0 0, rgba(15, 157, 88, 0.75) 0 -1.5em 0 0, rgba(15, 157, 88, 0.75) 1.1em -1.1em 0 0;
+  }
+
+  /* Animation */
+
+  @-webkit-keyframes spinner {
+    0% {
+      -webkit-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  @-moz-keyframes spinner {
+    0% {
+      -webkit-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  @-o-keyframes spinner {
+    0% {
+      -webkit-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes spinner {
+    0% {
+      -webkit-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  /* css end for spinner loading */
+
+  .login-modal-div .left{
+    text-align: left;
+  }
+
+  .login-modal-div .right{
+    text-align: right;
+  }
+
+  .login-modal-div .pull-right{
+    float: right;
+  }
+
+  .login-modal-div .pull-left{
+    float: left;
+  }
+
+  .modal-form-label{
+    vertical-align: middle;
+    font-weight: 500;
+    color: #404040;
+    font-size: 12px;
+    position: relative;
+    /*top: -5px;*/
+  }
+
+  .login-modal-div a{
+    color: #979faf;
+  }
+
+  .login-modal-div a:hover{
+    color: #0f9d58;
+    text-decoration: underline;
+  }
+
+  .login-modal-div .btn{
+    background-color: whitesmoke;
+    background-image: -webkit-gradient(linear, top left, bottom left, color-stop(0, #2bbe60), color-stop(1, #0f9d58));
+    background-image: -webkit-linear-gradient(top, #2bbe60, #0f9d58);
+    background-image: linear-gradient(to bottom, #2bbe60, #0f9d58);
+    border: 1px solid #0f9d58;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08),inset 0 -1px 4px rgba(151,159,175,0.2);
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-block;
+    padding: 10px 20px;
+    margin-bottom: 0;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 18px;
+    position: relative;
+    color: #39424e;
+    text-align: center;
+    text-decoration: none !important;
+    vertical-align: middle;
+  }
+
+  .login-modal-div .btn-green{
+    color: #fff;
+    background-color: #0f9d58;
+    width: 100%;
+    text-shadow: none;
+  }
+
+  .login-modal-div .forgot-link, .login-modal-div .login-link{
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 12px;
+    position: relative;
+    bottom: -5px;
+  }
+
+  @media(max-width: 768px){
+    .login-modal-div .forgot-link, .login-modal-div .login-link{
+      padding: 10px 0px;    
+    }
+  }
+
+  .login-modal-div .social-signin-div{
+    border: 1px solid #ddd;
+    border-top: none;
+    padding-bottom: 20px;
+  }
+
+  .login-modal-div .social-signin-div .social-div{
+    width: 50%;
+    display: inline-block;
+    padding: 5px 30px;
+  }
+
+  .login-modal-div .social-signin-div .tnc-div{
+    font-size: 10px;
+    padding: 0 15px;
+    color: #999;
+    margin-top: 10px;
+    margin-bottom: 0;
+  }
+
+  .login-modal-div .social-signin-div .tnc-div a{
+    color: #0f9d58;
+  }
+
+  .login-modal-div .social-signin-div .social-divider{
+    width: 80%;
+    text-align: center;
+    border-bottom: 1px solid #979faf;
+    line-height: 0.1em;
+    margin: -20px 0 20px;
+    margin-left: 10%;
+  }
+
+  .login-modal-div .social-signin-div .social-divider span{
+    background: #fff;
+    padding: 0 10px;
+  }
+
+  .login-modal-div .social-signin-div .btn-social{
+    padding-left: 40px;
+    color: #fff;
+  }
+
+  .login-modal-div .social-signin-div .btn-social span.fa{
+    padding-top: 2px;
+  }
+
+  .login-modal-div .social-signin-div .btn-google{
+    background-image: -webkit-gradient(linear, top left, bottom left, color-stop(0, #dd4e41), color-stop(1, #c9453a));
+    background-image: -webkit-linear-gradient(top, #dd4e41, #c9453a);
+    background-image: linear-gradient(to bottom, #dd4e41, #c9453a);
+    color: #fff;
+    border: 1px solid #c9453a;
+    padding-left: 60px;
+  }
+
+  .login-modal-div .social-signin-div .btn-facebook{
+    background-image: -webkit-gradient(linear, top left, bottom left, color-stop(0, #4b66a0), color-stop(1, #3b5998));
+    background-image: -webkit-linear-gradient(top, #4b66a0, #eb5998);
+    background-image: linear-gradient(to bottom, #4b66a0, #3b5998);
+    color: #fff;
+    border: 1px solid #3b5998;
+  }
+
+  .login-modal-div .social-signin-div .btn-linkedin{
+    background-image: -webkit-gradient(linear, top left, bottom left, color-stop(0, #0073b1), color-stop(1, #075b8c));
+    background-image: -webkit-linear-gradient(top, #0073b1, #075b8c);
+    background-image: linear-gradient(to bottom, #0073b1, #075b8c);
+    color: #fff;
+    border: 1px solid #075b8c;
+    padding-left: 60px;
+  }
+
+  .login-modal-div .social-signin-div .btn-github{
+    background-image: -webkit-gradient(linear, top left, bottom left, color-stop(0, #4a4646), color-stop(1, #191717));
+    background-image: -webkit-linear-gradient(top, #4a4646, #191717);
+    background-image: linear-gradient(to bottom, #4a4646, #191717);
+    color: #fff;
+    border: 1px solid #191717;
+    padding-left: 60px;
+  }
+
+  .login-modal-div .forgot-div{
+    padding: 20px 30px 30px 30px;
+    border: 1px solid #ddd;
+    display: none;
+  }
+
+  .login-modal-div .forgot-div p:first-of-type{
+    font-weight: 400;
+    color: #404040;
+  }
+
+  .login-modal-div div.input-error{
+    font-size: 12px;
+    color: #b71c1c;
+    letter-spacing: 0.83;
+    text-align: left;
+    position: relative;
+    bottom: 10px;
+    font-weight: 500;
+  }
+
+  #glogin, #fblogin, #inlogin, #gitlogin{
+    display: block;
+  }
+
+  @media(max-width:468px){
+    .login-modal-div .social-signin-div .social-div{
+      padding: 0;
+    }
+
+    #glogin, #fblogin, #inlogin, #gitlogin{
+      font-size: 14px !important;
+      display: inline-block;
+    }
+
+    #glogin{
+      padding-left: 50px !important;
+    }
+
+    #inlogin{
+      padding-left: 43px !important;
+    }
+  }
+</style> 
+  <div class="spinner-loading-overlay"></div> 
+  <div class="login-modal-div"> 
+   <div class="modal-content"> 
+    <div class="close-div">
+     <span class="close">×</span>
+    </div> 
+    <div class="white-bg center modal-header"> 
+     <div class="login-register-div"> 
+      <input id="tab1" type="radio" name="tabs" checked> <label class="tab-label" for="tab1">Sign In</label> 
+      <input id="tab2" type="radio" name="tabs"> <label class="tab-label" for="tab2">Sign Up</label> 
+      <section id="content1"> 
+       <form method="POST" class="login-form" id="Login"> 
+        <input type="hidden" name="reqType" value="Login"> 
+        <div class="modal-form-group"> 
+         <div class="extra"></div> 
+        </div> 
+        <div class="modal-form-group"> <i class="input-icon material-icons">account_circle</i> 
+         <input name="user" id="luser" required type="text" class="modal-form-input" placeholder="Username or email"> 
+        </div> 
+        <div class="modal-form-group"> <i class="input-icon material-icons">lock</i> 
+         <input name="pass" id="password" type="password" required class="modal-form-input" placeholder="Password"> 
+        </div> 
+        <div class="modal-form-group left"> 
+         <input name="rem" type="hidden" value="false"> 
+         <input name="to" type="hidden" value="https://auth.geeksforgeeks.org/loginModal.php"> 
+         <input name="rem" type="checkbox" checked> <label class="modal-form-label" for="remember">Remember me</label> <a class="pull-right forgot-link">Forgot Password</a> 
+        </div> 
+        <div class="modal-form-group left"> 
+         <center>
+          <div id="loginCaptcha"></div>
+         </center> 
+        </div> <button class="btn btn-green signin-button" type="submit">Sign In</button> 
+       </form> 
+      </section> 
+      <section id="content2"> 
+       <form method="POST" class="login-form" id="Register"> 
+        <input type="hidden" name="reqType" value="Register"> 
+        <div class="modal-form-group"> 
+         <div class="extra"></div> 
+        </div> <!-- <div class="modal-form-group">
+              <i class="input-icon material-icons">account_circle</i>
+              <input name="user" id="reg-user" type="text" required="required" class="modal-form-input" placeholder="Username">
+            </div> --> 
+        <div class="modal-form-group"> <i class="input-icon material-icons">email</i> 
+         <input name="email" id="email" type="email" required class="modal-form-input" placeholder="E-mail"> 
+        </div> 
+        <div class="modal-form-group"> <i class="input-icon material-icons">lock</i> 
+         <input name="pass" id="reg-password" type="password" required class="modal-form-input" placeholder="Password"> 
+        </div> 
+        <div class="modal-form-group"> <i class="input-icon material-icons">business</i> 
+         <input name="institute" id="organization" autocomplete="off" required type="text" class="modal-form-input typeahead" placeholder="Institution/Organization"> 
+        </div> 
+        <div class="modal-form-group"> 
+         <center>
+          <div id="registerCaptcha"></div>
+         </center> 
+        </div> 
+        <input name="to" type="hidden" value="https://auth.geeksforgeeks.org/loginModal.php"> <button class="btn btn-green signup-button" type="submit">Sign Up</button> 
+       </form> 
+      </section> 
+      <div class="social-signin-div"> 
+       <div class="social-divider"> <span>or</span> 
+       </div> 
+       <div class="google-div social-div pull-left"> <a id="glogin" href="javascript:void(0)" class="btn btn-social btn-google"> <span class="fa fa-google"></span>Google </a> 
+       </div> 
+       <div class="facebook-div social-div"> <a id="fblogin" href="javascript:void(0)" class="btn btn-social btn-facebook"> <span class="fa fa-facebook"></span>Facebook </a> 
+       </div> 
+       <p></p> 
+       <div class="linkedin-div social-div pull-left"> <a id="inlogin" class="btn btn-social btn-linkedin"> <span class="fa fa-linkedin"></span>LinkedIn </a> 
+       </div> 
+       <div class="github-div social-div pull-left"> <a id="gitlogin" class="btn btn-social btn-github"> <span class="fa fa-github"></span>GitHub </a> 
+       </div> 
+       <div style="padding: 10px 0px;font-size: 14px;font-weight: 500;padding-top: 20px;">
+        <a href="https://www.geeksforgeeks.org/why-create-an-account-on-geeksforgeeks/" style="color: #0f9d58;" target="_blank">Why Create an Account?</a>
+       </div> 
+       <div class="tnc-div">
+         By creating this account, you agree to our <a href="https://www.geeksforgeeks.org/privacy-policy/" target="_blank">Privacy Policy</a> &amp; <a href="https://www.geeksforgeeks.org/cookie-policy/" target="_blank">Cookie Policy</a>. 
+       </div> 
+      </div> 
+     </div> 
+     <div class="forgot-div"> 
+      <form class="login-form" id="Forgot"> 
+       <input type="hidden" name="reqType" value="Forgot"> 
+       <div class="modal-form-group"> 
+        <div class="extra"></div> 
+       </div> 
+       <div class="modal-form-group"> 
+        <p class="left">Please enter your email address or userHandle.</p> 
+       </div> 
+       <div class="modal-form-group"> <i class="input-icon material-icons">account_circle</i> 
+        <input name="user" id="fuser" type="text" class="modal-form-input" placeholder="Username/Email"> 
+       </div> 
+       <div class="modal-form-group"> 
+        <center>
+         <div id="forgotCaptcha"></div>
+        </center> 
+       </div> 
+       <div class="modal-form-group left"> <a class="login-link">Back to Login</a> 
+       </div> <button class="btn btn-green center reset-button" type="submit">Reset Password</button> 
+      </form> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+  <script src="https://authcdn.geeksforgeeks.org/js/typeahead.bundle.min.js"></script> 
+  <script>
+
+    // set csrf token for login
+    (function(){
+        $.ajax({
+            url: 'https://auth.geeksforgeeks.org/setLoginToken.php',
+            type: 'POST',
+            xhrFields: {
+                 withCredentials: true
+            },
+            success: function(data){
+            },
+            error: function(data){
+                console.log(data);
+            }
+        });
+    })();
+
+  $('#loginCaptcha').closest('.modal-form-group').hide();
+
+  var redirectUrl = $('#Login').find('input[name=to]').val();
+
+  // pop up modal when button clicks.
+  $('body').on('click', '.login-modal-btn', function(e){
+    e.preventDefault();
+    var href = window.location.href;
+    if($(this).prop("tagName") == "A"){
+        href = $(this).attr('href');
+    }
+    else if($(this).prop("tagName") == "FORM"){
+        href = $(this).attr('action');
+    }
+    $('.login-modal-div').find('input[name=to]').val(href);
+    $('.login-modal-div').fadeIn('fast');
+    redirectUrl = href;
+  });
+
+
+  //google captch initialization for register/forgot section.
+  var captchaSiteKey = '6LexF0sUAAAAADiQjz9BMiSrqplrItl-tWYDSfWa';
+  var forgotWidgetId;
+  var registerWidgetId;
+  var loginWidgetId;
+  var onloadCallback = function() {
+      // Renders the HTML element with id 'example1' as a reCAPTCHA widget.
+      // The id of the reCAPTCHA widget is assigned to 'widgetId1'.
+      registerWidgetId = grecaptcha.render('registerCaptcha', {
+        'sitekey' : captchaSiteKey,
+      });
+      loginWidgetId = grecaptcha.render('loginCaptcha', {
+        'sitekey' : captchaSiteKey,
+      });
+      forgotWidgetId = grecaptcha.render('forgotCaptcha', {
+        'sitekey' : captchaSiteKey
+      });
+  };
+
+  // check required field.
+  $('body').on('blur', 'input[required=required]', function(){
+    var val = $(this).val();
+    $('.error-focus').removeClass('error-focus');
+    $('div.input-error').remove();
+    if(val == "" || val == null || val == undefined){
+      $(this).closest('.modal-form-group').append('<div class="input-error">Field can not be empty.</div>');
+      $(this).addClass('error-focus');
+      $(this).focus();
+    }
+  });
+
+  //remove error message if input have some words.
+  $('body').on('keydown', 'input[required=required]', function(){
+    var val = $(this).val();
+    if(val != "" || val != null || val != undefined){
+      $(this).removeClass('error-focus');
+      $(this).closest('.modal-form-group').find('.input-error').remove();
+    }
+  });
+
+  // suggest organization.
+  var instituteListBlood = new Bloodhound({
+    initialize: false,
+    datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
+    queryTokenizer: Bloodhound.tokenizers.whitespace,
+    sufficient: 5,
+    prefetch: { 
+      url: 'https://api.geeksforgeeks.org/api/institutes/all'
+    },
+    remote: {
+      url: 'https://api.geeksforgeeks.org/api/institutes/%QUERY/all',
+      wildcard: '%QUERY',
+      filter: function (data) {
+        instituteListBlood.add(data);
+        return data;
+      }
+    }
+  });
+
+  $(document).ready(function () {
+    instituteListBlood.clearPrefetchCache();
+    instituteListBlood.initialize();
+    $('input.typeahead').typeahead({
+      minLength: 2,
+      dynamic: false,
+      highlight: true,
+      cache: "sessionStorage",
+      searchOnfocus: true,
+      offset: true,
+      blurOnTab: true
+    }, {
+      displaykey: 'value',
+      limit: 15,
+      source: instituteListBlood.ttAdapter(),
+      accent: true,
+      templates: {
+      empty: [
+              ''
+              ].join('\n')
+      }
+    });
+  });
+
+  $(document).ready(function(){
+
+    // dismiss modal when click on close icon.
+    $('body').on('click', '.close', function(){
+      $(this).closest('.login-modal-div').fadeOut('fast');
+    });
+
+    //dismiss modal when esc key pressed.
+    $(document).keypress(function(e) { 
+        if (e.keyCode == 27) { 
+            $(".login-modal-div").fadeOut('fast');
+        } 
+    });
+
+    //dismiss modal when click outside of it.
+    $('body').on('click', '.login-modal-div', function(){
+        $(".login-modal-div").fadeOut('fast');
+    });
+
+    $('body').on('click', '.login-modal-div .modal-content', function(e){
+        e.stopPropagation();
+    });
+
+    //toggle between forgot div and login div.
+    $('body').on('click', '.login-link, .forgot-link', function(){
+      if($(this).hasClass('login-link')){
+        $('.forgot-div').slideUp();
+        $('.login-register-div').slideDown();
+      }
+      else{
+        $('.login-register-div').slideUp();
+        $('.forgot-div').slideDown();
+      }
+    });
+
+    // redirect function.
+    function redirect(where) {
+      if( where == 'to' ) {
+        window.location.href = to;
+      } else if( where == 'reset' ) {
+        q2to3();
+        $("#ruser").val($("#fuser").val());
+      }
+      else{
+        if(window.location.href == where){
+            window.location.reload(true);
+        }
+        else{
+            window.location.href = where;
+        }
+      }
+    }
+
+    // event on submit either login, register or forgot form.
+    $(".login-form").submit( function(e) {
+      e.preventDefault();
+      this1 = $(this);
+      $('.spinner-loading-overlay').show();
+      this1.find(".extra").empty();
+      this1.find('input[type=submit]').attr('disabled', true);
+      var browserInfo = fetchBrowserInfo();
+
+      $.ajax({
+        type: "POST",
+        url: 'https://auth.geeksforgeeks.org/auth.php',
+        data: $(this).serialize()+"&browserInfo="+JSON.stringify(browserInfo),
+        xhrFields: {
+          withCredentials: true
+        },
+        dataType: "json",
+        success: function( data ) {
+          this1.find('input[type=submit]').attr('disabled', false);
+          if( data.redirect ) {
+            redirect( data.redirect );
+          } else if( data.extra ) {
+            $('.spinner-loading-overlay').hide();
+            this1.find(".extra").append(data.extra);
+            var errorTxt = this1.find(".extra").find('div').text().trim();
+            grecaptcha.reset(loginWidgetId);
+            if(errorTxt == "Captcha validation needed" && this1.attr('id') == "Login"){
+              if(!$('#loginCaptcha').closest('.modal-form-group').find('input[name=recaptchaShow]').length){
+                $('#loginCaptcha').closest('.modal-form-group').append('<input name="recaptchaShow" type="hidden" value="1">');
+              }
+              $('#loginCaptcha').closest('.modal-form-group').show();
+            }
+          }
+        },
+        error: function(jqXHR, exception, errorThrown) {
+          this1.find('input[type=submit]').attr('disabled', false);
+          $('.spinner-loading-overlay').hide();
+          console.log( "An error occurred" );
+        },
+        complete: function() {
+          this1.find('input[type=submit]').attr('disabled', false);
+          if(this1.attr('id') == "Forgot"){
+            grecaptcha.reset(forgotWidgetId);
+          }
+          else{
+            grecaptcha.reset(registerWidgetId);
+          }
+        }
+      });
+      return false;
+    });
+
+    //prevent to type space bar in register password field.
+    $('body').on('keydown', 'input[name=pass]', function(e){
+        if($(this).closest('form').find('input[name=reqType]').length && $(this).closest('form').find('input[name=reqType]').val() == "Register"){
+            return e.which !== 32;
+        }
+    });
+
+
+  // Facebook login
+    $('#fblogin').click(function(e){
+        e.preventDefault();
+        var w = 600, h = 350, left = screen.width / 2 - w / 2, top = screen.height / 2 - h / 2;
+        var remember = $('#Login').find('input[name=rem]').is(":checked");
+        var redirect = $('#Login').find('input[name=to]').val();
+        var browserInfo = JSON.stringify(fetchBrowserInfo());
+        window.open('https://auth.geeksforgeeks.org//fb-login.php?to='+encodeURIComponent(redirect)+'&rem='+remember+'&browserInfo='+browserInfo,'_self','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width='+w+', height='+h+',top='+top+', left='+left);
+      }); 
+
+    // linkedin login
+    $('#inlogin').click(function(e){
+        e.preventDefault();
+        var w = 600, h = 350, left = screen.width / 2 - w / 2, top = screen.height / 2 - h / 2;
+        var remember = $('#Login').find('input[name=rem]').is(":checked");
+        var redirect = $('#Login').find('input[name=to]').val();
+        var browserInfo = JSON.stringify(fetchBrowserInfo());
+        window.open('https://auth.geeksforgeeks.org//linkedin-login.php?to='+encodeURIComponent(redirect)+'&rem='+remember+'&browserInfo='+browserInfo,'_self','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width='+w+', height='+h+',top='+top+', left='+left);
+      });
+
+    // github login
+    $('#gitlogin').click(function(e){
+        e.preventDefault();
+        var w = 600, h = 350, left = screen.width / 2 - w / 2, top = screen.height / 2 - h / 2;
+        var remember = $('#Login').find('input[name=rem]').is(":checked");
+        var redirect = $('#Login').find('input[name=to]').val();
+        var browserInfo = JSON.stringify(fetchBrowserInfo());
+        window.open('https://auth.geeksforgeeks.org//github-login.php?to='+encodeURIComponent(redirect)+'&rem='+remember+'&browserInfo='+browserInfo,'_self','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width='+w+', height='+h+',top='+top+', left='+left);
+      });
+
+    $('#glogin').click(function(e){
+        e.preventDefault();
+        var remember = $('#Login').find('input[name=rem]').is(":checked");
+        var redirect = $('#Login').find('input[name=to]').val();
+        var browserInfo = JSON.stringify(fetchBrowserInfo());
+        window.location = "https://auth.geeksforgeeks.org/googleLogin.php?redirect="+encodeURIComponent(redirect)+"&remember="+remember+"&browserInfo="+browserInfo;  
+      });
+  });
+
+  function fetchBrowserInfo(){
+    var browserInfo = {};
+    browserInfo.appName = navigator.appName;
+    browserInfo.appCodeName = navigator.appCodeName;
+    browserInfo.cookieEnable = navigator.cookieEnabled;
+    browserInfo.prodName = navigator.product;
+    browserInfo.appVersion = navigator.appVersion;
+    browserInfo.appOs = navigator.platform;
+    browserInfo.appLang = navigator.language;
+    browserInfo.vendorName = navigator.vendor;
+    browserInfo.loginDomain = "practice";
+
+    return browserInfo;
+  }
+</script> 
+  <script src="dropzone.js"></script> 
+  <script type="text/javascript">
+var language = 'C';</script> 
+  <style>
+    .fullScreen {
+      position: fixed;
+      z-index: 1000;
+      width: 100vw;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      background: #fff;
+      display:none;
+    }
+
+    .split {
+      float: left;
+      height: 100vh;
+    }
+</style> 
+  <div class="fullScreen" style="z-index:1000;overflow-x:hidden;display:none"> 
+   <div class="leftDiv split" style="overflow-y:auto;width:56%;padding:10px 20px 100px 20px;outline: 10px solid #f1f1f1;overflow-x:hidden"></div> 
+   <div class="rightDiv split" style="overflow-y:auto;width:44%;padding:10px 20px 100px 35px;overflow-x:hidden"></div> 
+  </div> 
+  <div class="container-fluid" style="margin-bottom:15px;"> 
+   <div class="row screen"> 
+    <div class="col-sm-9 col-xs-12 normalScreen"> 
+     <div class="mainleftDiv"> 
+      <div class="col-sm-offset-1 col-sm-11 col-xs-12 text-center" style="margin-bottom:8px;"> 
+       <div class="row"> <!-- /27823234/IDE/Horizontal_W<1201_H<181 --> 
+        <div id="div-gpt-ad-1525180449717-0"> 
+         <script>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1525180449717-0'); });
+</script> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="col-sm-1 col-xs-12"> 
+       <div class="row form-group btn-group vertBtns" role="group"> <button type="button" l="C" class="lang btn btn-default form-control" style="border-radius: 0;">C</button> <button data-toggle="tooltip" title="C++11 supported" type="button" l="Cpp" class="lang btn btn-default form-control">C++</button> <button type="button" l="Cpp14" class="lang btn btn-default form-control">C++14</button> <button type="button" l="Csharp" class="lang btn btn-default form-control">C#</button> <button type="button" l="Java" class="lang btn btn-default form-control">Java</button> <button type="button" l="Perl" class="lang btn btn-default form-control">Perl</button> <button type="button" l="Php" class="lang btn btn-default form-control">PHP</button> <button type="button" l="Python" class="lang btn btn-default form-control">Python</button> <button type="button" l="Python3" class="lang btn btn-default form-control">Python 3</button> <button type="button" l="Scala" class="lang btn btn-default form-control" style="border-radius: 0;">Scala</button> <a href="/tryit.php" target="_blank" class="btn btn-default form-control" style="border-radius: 0;">HTML &amp; JS</a> 
+       </div> 
+       <div class="row form-group vertBtns"> <button id="saveFile" data-toggle="tooltip" title="Download Code" class="savebtn btn btn-default form-control"> <span class="glyphicon glyphicon-cloud-download"></span> </button> 
+        <form role="form" id="uploadForm" data-toggle="tooltip" title="Upload Code" class="btn btn-default form-control dropzone" action=" " enctype="multipart/form-data"> <span class="glyphicon glyphicon-cloud-upload"></span>
+         <input type="hidden" name="file"> 
+        </form> 
+       </div> 
+      </div> 
+      <div class="col-sm-11 col-xs-12" style="padding-left:40px"> 
+       <div class="row"> 
+        <div class="btn btn-default tab col-sm-2 col-xs-4" style="display:none" id="tab0" name="0"> 
+         <div class="text">
+          Tab0
+         </div> <button class="btn btn-default btn-sm closeTab" name="0"><i class="glyphicon glyphicon-minus-sign"></i></button> 
+        </div>
+        <div class="btn btn-default tab col-sm-2 col-xs-4" style="display:none" id="tab1" name="1"> 
+         <div class="text">
+          Tab1
+         </div> <button class="btn btn-default btn-sm closeTab" name="1"><i class="glyphicon glyphicon-minus-sign"></i></button> 
+        </div>
+        <div class="btn btn-default tab col-sm-2 col-xs-4" style="display:none" id="tab2" name="2"> 
+         <div class="text">
+          Tab2
+         </div> <button class="btn btn-default btn-sm closeTab" name="2"><i class="glyphicon glyphicon-minus-sign"></i></button> 
+        </div>
+        <div class="btn btn-default tab col-sm-2 col-xs-4" style="display:none" id="tab3" name="3"> 
+         <div class="text">
+          Tab3
+         </div> <button class="btn btn-default btn-sm closeTab" name="3"><i class="glyphicon glyphicon-minus-sign"></i></button> 
+        </div>
+        <div class="btn btn-default tab col-sm-2 col-xs-4" style="display:none" id="tab4" name="4"> 
+         <div class="text">
+          Tab4
+         </div> <button class="btn btn-default btn-sm closeTab" name="4"><i class="glyphicon glyphicon-minus-sign"></i></button> 
+        </div> <button class="btn btn-default" id="addTab"><i class="glyphicon glyphicon-plus-sign"></i></button> <a id="full" data-toggle="tooltip" title="Click to Zoom" href="javascript:void(0)"> <span class="glyphicon glyphicon-fullscreen"></span> </a> <a id="splitScreen" data-toggle="tooltip" title="Click to Split" href="javascript:void(0)" style="float:right;padding:5px"> <span class="glyphicon glyphicon-resize-full"></span> </a> <button class="btn btn-default btnEditor pull-right">Copy</button> <button id="reset1" class="sbt btn btn-default"> <span class="glyphicon glyphicon-refresh"></span> Reset </button> <button class="btn btn-default shortkeys pull-right">Shortcuts</button> 
+       </div> 
+       <div class="row"> 
+        <form role="form" class="dropzone clickable-dz" action=" " enctype="multipart/form-data"> 
+         <div class="form-group"> 
+          <div class="editorBlock" style="height:500px;"> 
+           <pre id="editor"></pre> 
+          </div> 
+         </div> 
+        </form> 
+       </div> 
+      </div> 
+     </div> 
+     <div class="mainRightDiv"> 
+      <div class="row"> 
+       <div class="col-sm-offset-1 col-sm-11 col-xs-12" style="padding-left:38px"> 
+        <div class="row inputRunDiv"> 
+         <div class="form-group col-sm-7 col-xs-12 inputDiv"> <textarea id="input" placeholder="Input Goes Here.." maxlength="10000" class="gb wf form-control input" style="height:200px;"></textarea> <button class="btn btn-default btnInput" type="button">Copy</button> 
+         </div> 
+         <div class="sbt-group btn-group col-sm-5 col-xs-12" role="group"> <button id="run" class="sbt btn btn-default" title="Run Program(Ctrl+Enter)"> <span class="glyphicon glyphicon-chevron-right"></span> <b>Run</b> </button> <button id="runurl" class="sbt btn btn-default" title="Generates URL as well for Code Sharing"> <span class="glyphicon glyphicon-chevron-right"></span> <b>Run+URL (Generates URL as well)</b> </button> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <br> 
+      <div class="row"> 
+       <div class="col-sm-11 col-xs-12"> 
+        <div class="lang-group btn-group col-sm-12" role="group"> <button type="button" l="C" class="lang btn btn-default">C</button> <button data-toggle="tooltip" title="C++11 supported" type="button" l="Cpp" class="lang btn btn-default">C++</button> <button type="button" l="Cpp14" class="lang btn btn-default">C++14</button> <button type="button" l="Csharp" class="lang btn btn-default">C#</button> <button type="button" l="Java" class="lang btn btn-default">Java</button> <button type="button" l="Perl" class="lang btn btn-default">Perl</button> <button type="button" l="Php" class="lang btn btn-default">PHP</button> <button type="button" l="Python" class="lang btn btn-default">Python</button> <button type="button" l="Python3" class="lang btn btn-default">Python 3</button> <button type="button" l="Scala" class="lang btn btn-default">Scala</button> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="row"> 
+       <div class="col-sm-11 col-xs-12"> 
+        <div class="form-group lang-group row"> 
+         <div class="col-xs-6"> <button id="saveFileSmallScreen" data-toggle="tooltip" title="Download Code" class="savebtn btn btn-default form-control"> <span class="glyphicon glyphicon-cloud-download"></span> </button> 
+         </div> 
+         <div class="col-xs-6"> 
+          <form role="form" id="uploadFormSmallScreen" data-toggle="tooltip" title="Upload Code" class="dropzone btn btn-default form-control" action=" " enctype="multipart/form-data"> <span class="glyphicon glyphicon-cloud-upload"></span>
+           <input type="hidden" name="file"> 
+          </form> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="col-sm-offset-1 col-sm-11 col-xs-12"> 
+       <div style="display:none" class="row err"> 
+        <div class="alert alert-danger">
+          Oops! Something went wrong. You are probably allocating too much memory or producing too much output. 
+        </div> 
+       </div> 
+       <div class="row url" style="display:none"> 
+        <h3>Generated URL:<button class="btn btn-default btnLink pull-right">Copy</button></h3> 
+        <pre class="gb wf" id="preLink"></pre> 
+       </div> 
+       <div style="display:none;" class="row cmp"> 
+        <h3>Compile Errors : </h3> 
+        <pre class="gb wf" style="max-height:100px;overflow-y:scroll"></pre> 
+       </div> 
+       <div style="display:none;" class="row war"> 
+        <h3>Warnings: </h3> 
+        <pre class="gb wf" style="max-height:100px;overflow-y:scroll"></pre> 
+       </div> 
+       <div style="display:none" class="row stats"> 
+        <div class="col-sm-6" style="display:inline"> 
+         <h4 style="display:inline;">Time(sec) : </h4> 
+         <h4 class="time" style="display:inline;"> 0.25 </h4> 
+        </div> 
+        <div class="col-sm-6" style="display:inline"> 
+         <h4 style="display:inline;">Memory(MB) : </h4> 
+         <h4 class="memory" style="display:inline;"> 0.25 </h4> 
+        </div> 
+       </div> 
+       <div style="display:none;" class="row rnt"> 
+        <h3>Runtime Errors: </h3> 
+        <pre class="gb wf" style="max-height:100px;overflow-y:scroll"></pre> 
+       </div> 
+       <div style="display:none;" class="row out"> 
+        <h3>Output: <button class="btn btn-default btnOutput pull-right">Copy</button> </h3> 
+        <pre class="gb wf" id="preOutput"></pre> 
+       </div> 
+      </div> 
+     </div> 
+     <div class="col-sm-offset-1 col-sm-11 col-xs-12 hidden-xs text-center"> 
+      <div class="row"> <!-- /27823234/IDE/Horizontal_W<1201_H<181 --> 
+       <div id="div-gpt-ad-1525180449717-1"> 
+        <script>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1525180449717-1'); });
+</script> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="col-sm-3 col-xs-12"> 
+     <div style="margin-bottom: 10px; margin-top: 9px;"> <a href="report.php" class="btn btn-success form-control" type="button" style="background-color:#4CB96B;font-size: 18px;border-radius: 0;">Report Bug</a> 
+     </div> <!-- /27823234/IDE/Vertical_W<337 --> 
+     <div id="div-gpt-ad-1525243586160-0"> 
+      <script>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1525243586160-0'); });
+</script> 
+     </div> 
+     <br> 
+     <div class="exploreCard" style="cursor:pointer"> 
+      <img class="img-responsive" src="https://cdncontribute.geeksforgeeks.org/wp-content/uploads/exploreFree-min.png"> 
+     </div>
+     <br> 
+     <br> <!-- /27823234/IDE/Vertical_W<337 --> 
+     <div id="div-gpt-ad-1525243586160-1"> 
+      <script>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1525243586160-1'); });
+</script> 
+     </div> 
+    </div> 
+   </div> 
+  </div> <!--Comment Modal --> 
+  <div class="modal fade" id="shortkeysModal" role="success"> 
+   <div class="modal-dialog "> 
+    <div class="modal-content"> 
+     <div class="modal-header"> <button type="button" class="close" data-dismiss="modal">×</button> 
+      <h4 class="modal-title">Keyboard shortcuts for editor</h4> 
+     </div> 
+     <div class="modal-body"> 
+      <table class="shortcutTable" border="1px solid #dfe2e5"> 
+       <thead> 
+        <tr>
+         <th align="left">Action</th> 
+         <th align="left">Windows/Linux</th> 
+         <th align="left">Mac</th> 
+        </tr> 
+       </thead>
+       <tbody> 
+        <tr> 
+         <td>Run Program</td> 
+         <td>Ctrl-Enter</td> 
+         <td>Command-Enter</td> 
+        </tr> 
+        <tr> 
+         <td>Find</td> 
+         <td>Ctrl-F</td> 
+         <td>Command-F</td> 
+        </tr> 
+        <tr> 
+         <td>Replace</td> 
+         <td>Ctrl-H</td> 
+         <td>Command-Option-F</td> 
+        </tr> 
+        <tr> 
+         <td>Remove line</td> 
+         <td>Ctrl-D</td> 
+         <td>Command-D</td> 
+        </tr> 
+        <tr> 
+         <td>Move lines down</td> 
+         <td>Alt-Down</td> 
+         <td>Option-Down</td> 
+        </tr> 
+        <tr> 
+         <td>Move lines up</td> 
+         <td>Alt-UP</td> 
+         <td>Option-Up</td> 
+        </tr> 
+       </tbody> 
+      </table>
+      <br> 
+      <div>
+        For more shortcuts you can visit the following page: <a href="https://github.com/ajaxorg/ace/wiki/Default-Keyboard-Shortcuts" target="_blank">Ace editor shortcuts</a> 
+      </div> 
+     </div> 
+     <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+  <style>
+	table.shortcutTable	td,th {
+		padding: 10px !important;
+	}
+	.courseCard {
+		background-color: #fff;
+		-webkit-box-shadow: 0px 0px 25px 0 rgba(0,0,0,.18);
+		-moz-box-shadow: 0px 0px 25px 0 rgba(0,0,0,.18);
+		box-shadow: 0px 0px 25px 0 rgba(0,0,0,.18);
+		font-family: 'Nunito', sans-serif;
+		border-radius: 3px;
+		margin-bottom: 15px;
+		margin-top: 20px;
+		border-radius: .80rem;
+		padding-bottom: 21px;
+	}
+</style> 
+  <footer class="gfg-footer" id="gfg-footer"> 
+   <div class="footer-wrapper"> 
+    <div class="footer-wrapper_branding"> <a href="https://www.geeksforgeeks.org/"> 
+      <div class="footer-wrapper_branding-logo pre-dark"></div> </a> 
+     <div class="footer-wrapper_branding-address"> <i class="material-icons">room</i> <span> 5th Floor, A-118,<br> Sector-136, Noida, Uttar Pradesh - 201305 </span> 
+     </div> 
+     <div class="footer-wrapper_branding-email"> <i class="material-icons">email</i> <a href="mailto:feedback@geeksforgeeks.org">feedback@geeksforgeeks.org</a> 
+     </div> 
+     <div class="footer-wrapper_branding-social"> <a href="https://www.facebook.com/geeksforgeeks.org/" target="_blank"> 
+       <div class="facebook"></div> </a> <a href="https://www.instagram.com/geeks_for_geeks/" target="_blank"> 
+       <div class="instagram"></div> </a> <a href="https://in.linkedin.com/company/geeksforgeeks" target="_blank"> 
+       <div class="linkedin"></div> </a> <a href="https://twitter.com/geeksforgeeks" target="_blank"> 
+       <div class="twitter"></div> </a> <a href="https://www.youtube.com/geeksforgeeksvideos" target="_blank"> 
+       <div class="youtube"></div> </a> 
+     </div> 
+    </div> 
+    <div class="footer-wrapper_links"> 
+     <ul class="footer-wrapper_links-list"> 
+      <li>Company</li> 
+      <li><a href="https://www.geeksforgeeks.org/about/">About Us</a></li> 
+      <li><a href="https://www.geeksforgeeks.org/careers/">Careers</a></li> 
+      <li><a href="https://www.geeksforgeeks.org/privacy-policy/">Privacy Policy</a></li> 
+      <li><a href="https://www.geeksforgeeks.org/about/contact-us/">Contact Us</a></li> 
+     </ul> 
+     <ul class="footer-wrapper_links-list"> 
+      <li>Learn</li> 
+      <li><a href="https://www.geeksforgeeks.org/fundamentals-of-algorithms/">Algorithms</a></li> 
+      <li><a href="https://www.geeksforgeeks.org/data-structures/">Data Structures</a></li> 
+      <li><a href="https://www.geeksforgeeks.org/category/program-output/">Languages</a></li> 
+      <li><a href="https://www.geeksforgeeks.org/articles-on-computer-science-subjects-gq/">CS Subjects</a></li> 
+      <li><a href="https://www.youtube.com/geeksforgeeksvideos/">Video Tutorials</a></li> 
+     </ul> 
+     <ul class="footer-wrapper_links-list"> 
+      <li>Practice</li> 
+      <li><a href="https://practice.geeksforgeeks.org/courses/">Courses</a></li> 
+      <li><a href="https://practice.geeksforgeeks.org/company-tags/">Company-wise</a></li> 
+      <li><a href="https://practice.geeksforgeeks.org/topic-tags/">Topic-wise</a></li> 
+      <li><a href="https://practice.geeksforgeeks.org/faq.php">How to begin?</a></li> 
+     </ul> 
+     <ul class="footer-wrapper_links-list"> 
+      <li>Contribute</li>  
+      <li><a href="https://www.geeksforgeeks.org/contribute/">Write an Article</a></li> 
+      <li><a href="https://www.geeksforgeeks.org/write-interview-experience/">Write Interview Experience</a></li> 
+      <li><a href="https://www.geeksforgeeks.org/internship/">Internships</a></li> 
+      <li><a href="https://www.geeksforgeeks.org/how-to-contribute-videos-to-geeksforgeeks/">Videos</a> </li> 
+     </ul> 
+    </div> 
+   </div> 
+   <div class="footer-strip"> 
+    <div class="copyright"> <a href="https://in.linkedin.com/company/geeksforgeeks" target="_blank">@geeksforgeeks</a> <span>, Some rights reserved</span> 
+    </div> 
+    <div class="social-links"> 
+    </div> 
+   </div> 
+  </footer> <!-- End of footer --> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"> 
+  <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script> <!-- Global site tag (gtag.js) - Google Analytics --> 
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144087254-1"></script> 
+  <script>
+        window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'UA-144087254-1');
+    </script>  
+ </body>
+</html>
