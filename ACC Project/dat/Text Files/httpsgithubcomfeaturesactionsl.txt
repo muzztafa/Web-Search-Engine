@@ -1,0 +1,236 @@
+Features ? GitHub Actions ? GitHub Skip to content Sign up Product Features Mobile Actions Codespaces Packages Security Code review Issues Integrations GitHub Sponsors Customer stories Team Enterprise Explore Explore GitHub Learn and contribute Topics Collections Trending Learning Lab Open source guides Connect with others The ReadME Project Events Community forum GitHub Education GitHub Stars program Marketplace Pricing Plans Compare plans Contact Sales Education Search All GitHub ? Jump to ? No suggested jump to results Search All GitHub ? Jump to ? Search All GitHub ? Jump to ? Search All GitHub ? Jump to ? Sign in Sign up {{ message }} GitHub Actions Automate your workflow from idea to production GitHub Actions makes it easy to automate all your software workflows, now with world-class CI/CD. Build, test, and deploy your code right from GitHub. Make code reviews, branch management, and issue triaging work the way you want. Get started with Actions Questions? Contact Sales on: milestone on: issue_comment on: check_run on: deployment on: label on: project_card on: pull_request_comment on: release on: repository_vulnerability_alert on: milestone on: public on: repository_dispatch on: issue_comment on: fork on: deployment_status on: page_build on: watch on: pull_request on: delete on: issue_comment on: issues on: check_suite on: scheduled on: pull_request_review on: project_column on: status on: project on: pull_request on: delete on: issue_comment on: push on: page_build on: watch Run a workflow on any GitHub event Kick off workflows with GitHub events like push, issue creation, or a new release. Combine and configure actions for the services you use, built and maintained by the community. Whether you want to build a container, deploy a web service, or automate welcoming new users to your open source projects?there's an action for that. Pair GitHub Packages with Actions to simplify package management, including version updates, fast distribution with our global CDN, and dependency resolution, using your existing GITHUB_TOKEN. on: milestone on: issue_comment on: check_run on: deployment on: label on: project_card on: pull_request_comment on: release on: repository_vulnerability_alert on: milestone on: public on: repository_dispatch on: issue_comment on: fork on: deployment_status on: page_build on: watch on: pull_request on: delete on: issue_comment on: issues on: check_suite on: scheduled on: pull_request_review on: project_column on: status on: project on: pull_request on: delete on: issue_comment on: push on: page_build on: watch Linux, macOS, Windows, ARM, and containers Hosted runners for every major OS make it easy to build and test all your projects. Run directly on a VM or inside a container. Use your own VMs, in the cloud or on-prem, with self-hosted runners. Matrix builds Save time with matrix workflows that simultaneously test across multiple operating systems and versions of your runtime. Any language GitHub Actions supports Node.js, Python, Java, Ruby, PHP, Go, Rust, .NET, and more. Build, test, and deploy applications in your language of choice.   error-pages
+  GET /
+    ? should respond with page list
+  Accept: text/html
+    GET /403
+      ? should respond with 403
+    GET /404
+      ? should respond with 404
+    GET /500
+      ? should respond with 500
+  Accept: application/json
+    GET /403
+      ? should respond with 403
+    GET /404
+      ? should respond with 404
+    GET /500
+      ? should respond with 500
+  Accept: text/plain
+    GET /403
+      ? should respond with 403
+    GET /404
+      ? should respond with 404
+    GET /500
+      ? should respond with 500
+error
+  GET /
+    ? should respond with 500
+  GET /next
+    ? should respond with 500
+  GET /missing
+    ? should respond with 404
+
+markdown
+  GET /
+    ? should respond with html
+  GET /fail
+    ? should respond with an error
+
+multi-router
+  GET /
+    ? should respond with root handler
+  GET /api/v1/
+    ? should respond with APIv1 root handler
+  GET /api/v1/users
+    ? should respond with users from APIv1
+  GET /api/v2/
+    ? should respond with APIv2 root handler
+  GET /api/v2/users
+    ? should respond with users from APIv2
+
+mvc
+  GET /
+    ? should redirect to /users
+  GET /pet/0
+    ? should get pet
+  GET /pet/0/edit
+    ? should get pet edit page
+  PUT /pet/2
+    ? should update the pet
+  GET /users
+    ? should display a list of users (70ms)
+  GET /user/:id
+    when present
+      ? should display the user
+      ? should display the users pets
+    when not present
+      ? should 404
+  GET /user/:id/edit
+    ? should display the edit form
+  PUT /user/:id
+    ? should 500 on error
+    ? should update the user
+  POST /user/:id/pet
+    ? should create a pet for user (19ms)
+
+params
+  GET /
+    ? should respond with instructions
+  GET /user/0
+    ? should respond with a user
+  GET /user/9
+    ? should fail to find user
+  GET /users/0-2
+    ? should respond with three users
+  GET /users/foo-bar
+    ? should fail integer parsing
+
+resource
+  GET /
+    ? should respond with instructions
+  GET /users
+    ? should respond with all users
+  GET /users/1
+    ? should respond with user 1
+  GET /users/9
+    ? should respond with error
+  GET /users/1..3
+    ? should respond with users 1 through 3
+  DELETE /users/1
+    ? should delete user 1
+  DELETE /users/9
+    ? should fail
+  GET /users/1..3.json
+    ? should respond with users 2 and 3 as json
+
+route-map
+  GET /users
+    ? should respond with users
+  DELETE /users
+    ? should delete users
+  GET /users/:id
+    ? should get a user
+  GET /users/:id/pets
+    ? should get a users pets
+  GET /users/:id/pets/:pid
+    ? should get a users pet
+
+route-separation
+  GET /
+    ? should respond with index
+  GET /users
+    ? should list users
+  GET /user/:id
+    ? should get a user
+    ? should 404 on missing user
+  GET /user/:id/view
+    ? should get a user
+    ? should 404 on missing user (13ms)
+  GET /user/:id/edit
+    ? should get a user to edit
+  PUT /user/:id/edit
+    ? should edit a user
+  POST /user/:id/edit?_method=PUT
+    ? should edit a user
+  GET /posts
+    ? should get a list of posts
+
+vhost
+  example.com
+    GET /
+      ? should say hello
+    GET /foo
+      ? should say foo
+  foo.example.com
+    GET /
+      ? should redirect to /foo
+  bar.example.com
+    GET /
+      ? should redirect to /bar
+
+web-service
+  GET /api/users
+    without an api key
+      ? should respond with 400 bad request
+    with an invalid api key
+      ? should respond with 401 unauthorized
+    with a valid api key
+      ? should respond users json
+  GET /api/repos
+    without an api key
+      ? should respond with 400 bad request
+    with an invalid api key
+      ? should respond with 401 unauthorized
+    with a valid api key
+      ? should respond repos json
+
+GET /api/user/:name/repos
+  without an api key
+    ? should respond with 400 bad request
+  with an invalid api key
+    ? should respond with 401 unauthorized
+  with a valid api key
+    ? should respond user repos json
+    ? should 404 with unknown user
+
+when requesting an invalid route
+  ? should respond with 404 json
+
+1123 passing (4s)
+
+=============================================================================
+Writing coverage object [/home/runner/build/expressjs/express/coverage/coverage.json]
+Writing coverage reports at [/home/runner/build/expressjs/express/coverage]
+=============================================================================
+
+=============================== Coverage summary ===============================
+Statements   : 98.81% ( 1916/1939 ), 38 ignored
+Branches     : 94.58% ( 751/794 ), 22 ignored
+Functions    : 100% ( 267/267 )
+Lines        : 100% ( 1872/1872 )
+================================================================================
+The command "npm run test-ci" exited with 0.
+
+$ npm run lint
+
+> express@4.17.1 lint /home/runner/build/expressjs/express
+> eslint .
+
+The command "npm run lint" exited with 0.
+
+store build cache
+
+$ # Upload coverage to coveralls
+
+Done. Your build exited with 0.
+
+          Live logs See your workflow run in realtime with color and emoji. It?s one click to copy a link that highlights a specific line number to share a CI/CD failure. Built in secret store Automate your software development practices with workflow files embracing the Git flow by codifying it in your repository. Multi-container testing Test your web service and its DB in your workflow by simply adding some docker-compose to your workflow file. Find a LaunchDarkly feature flag Search your code for references to LaunchDarkly feature flags launchdarkly/find-code-references Deploy to Azure Automate your workflows using GitHub Actions for Azure Azure/actions Amazon ECR Login Logs in the local Docker client to Amazon ECR aws-actions/amazon-ecr-login Deploy to Kubernetes Deploy your app on any Kubernetes cluster Azure/k8s-actions Code Climate Velocity In-depth code metrics to streamline your engineering processes codeclimate/velocity-deploy-action Coveralls Track your test coverage metrics coverallsapp/github-action Glo Boards Integrate your Glo boards into your code workflow Axosoft/glo-actions Mabl Integrate cross-browser testing into your GitHub Actions workflow mablhq/github-mabl-actions Find a LaunchDarkly feature flag Search your code for references to LaunchDarkly feature flags launchdarkly/find-code-references Deploy to Azure Automate your workflows using GitHub Actions for Azure Azure/actions Amazon ECR Login Logs in the local Docker client to Amazon ECR aws-actions/amazon-ecr-login Deploy to Kubernetes Deploy your app on any Kubernetes cluster Azure/k8s-actions Code Climate Velocity In-depth code metrics to streamline your engineering processes codeclimate/velocity-deploy-action Coveralls Track your test coverage metrics coverallsapp/github-action Glo Boards Integrate your Glo boards into your code workflow Axosoft/glo-actions Mabl Integrate cross-browser testing into your GitHub Actions workflow mablhq/github-mabl-actions Mark stale issues and pull requests Automatically label and close stale issues and pull requests actions/stale Mabl Integrate cross-browser testing into your GitHub Actions workflow mablhq/github-mabl-actions Label a pull request Label pull requests based on changed files actions/labeler Google Cloud Platform A collection of GitHub Actions for Google Cloud Platform GoogleCloudPlatform/github-actions Glo Boards Integrate your Glo boards into your code workflow Axosoft/glo-actions Code Cov Improve your code review workflow and quality codecov/codecov-action Coveralls Track your test coverage metrics coverallsapp/github-action Mark stale issues and pull requests Automatically label and close stale issues and pull requests actions/stale Mabl Integrate cross-browser testing into your GitHub Actions workflow mablhq/github-mabl-actions Label a pull request Label pull requests based on changed files actions/labeler Deploy to Zeit Deploy your project to the cloud using Zeit actions/zeit-now Google Cloud Platform A collection of GitHub Actions for Google Cloud Platform GoogleCloudPlatform/github-actions Glo Boards Integrate your Glo boards into your code workflow Axosoft/glo-actions Code Cov Improve your code review workflow and quality codecov/codecov-action Coveralls Track your test coverage metrics coverallsapp/github-action ci.yml 1 2 3 4 5 6 7 8 9 10 11 12 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 on: push
+jobs:
+  test:
+    strategy:
+      matrix:
+        platform: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.platform }}
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-node@v1
+      with:
+        version: 12
+    - run: npm install-ci-test
+    - uses:
+
+
+
+
+
+
+
+
+
+
+
+  publish:
+    needs: [build]
+    steps:
+    - uses: actions/checkout@v1
+              Community-powered workflows GitHub Actions connects all of your tools to automate every step of your development workflow. Easily deploy to any cloud, create tickets in Jira, or publish a package to npm. Want to venture off the beaten path? Use the millions of open source libraries available on GitHub to create your own actions. Write them in JavaScript or create a container Action?both can interact with the full GitHub API and any other public API. What our community is saying ?Actions is an exciting development and unlocks so much potential beyond CI/CD. It promises to streamline our workflows for a variety of tasks, from deploying our websites to querying the GitHub API for custom status reports to standard CI builds.? Ralf Gommers SciPy maintainer ?GitHub Actions empowers teams to define highly advanced pipelines without losing the focus on simplicity. It brings the power of the pipeline as code, matrix builds, and predefined environment together in one place. GitHub Actions makes it possible to build and share workflows via reusable steps and delivers what?s required to build the next-generation CI/CD pipeline.? Jeroen Knoops Senior Software Engineer ?With the integration of Code References with GitHub Actions, developers can now easily locate feature flags in their code. Internally, we believe using Actions can optimize our CI infrastructure and streamline our build process by parallel testing our clients across Windows, Linux, and OSX.? Edith Harbaugh CEO of LaunchDarkly ?Our mission is to empower all development teams with Code Quality and Security tools. For SonarCloud that means detecting bugs and security vulnerabilities, all while contributing to simple yet powerful pipelines, where multiple tools can play together as a team. GitHub Actions allows just that!? Olivier Gaudin SonarSource CEO & Co-Founder Simple, pay-as-you-go pricing Public repositories Free We love open source Private repositories Included minutes Free 2,000 minutes per month Pro 3,000 minutes per month Team 3,000 minutes per month Enterprise 50,000 minutes per month Additional hosted runner minutes Linux 2 cores, 7GB $0.008 per minute Windows 2 cores, 7GB $0.016 per minute macOS 2 cores, 7GB $0.08 per minute Self-hosted Free Included, hosted runner minutes are consumed at different rates for each operating system. GitHub Actions is not available for private repos in legacy per-repository plans. Learn more Documentation Read the workflow language reference and how to?s for many popular languages. Learn how to create an Action and share it with everyone on GitHub. The future of workflow automation is now Get started with GitHub actions today and explore community created actions in the GitHub Marketplace. Explore GitHub Actions Product Features Security Team Enterprise Customer stories The ReadME Project Pricing Resources Roadmap Platform Developer API Partners Atom Electron GitHub Desktop Support Docs Community Forum Professional Services Learning Lab Status Contact GitHub Company About Blog Careers Press Inclusion Social Impact Shop GitHub on Twitter GitHub on Facebook GitHub on YouTube GitHub on LinkedIn GitHub?s organization on GitHub ? 2022 GitHub, Inc. Terms Privacy Site Map What is Git? You can?t perform that action at this time. You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session.
