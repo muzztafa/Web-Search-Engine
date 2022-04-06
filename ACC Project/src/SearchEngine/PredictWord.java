@@ -43,7 +43,7 @@ public class PredictWord {
 				i++;
 				if(i==1)
 				System.out.println("Did you mean? ");
-				System.out.print("(" + i + ") " + entry.getKey() + "\n");
+				System.out.print(i + ". " + entry.getKey() + "\n");
 				matchFound = true;
 			}
 		}

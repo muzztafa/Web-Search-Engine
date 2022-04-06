@@ -54,11 +54,10 @@ public class HTMLtoTEXT {
 		PrintWriter text = new PrintWriter(storeHTML + UsingRegularExpression.getLinkAddress(link) + ".html");
 		text.println(html);
 		text.close();
-		//return html;
 	}
 	
 	/**
-	 * Metjod- testFile
+	 * Method- textFile
 	 * 
 	 * @param link
 	 * @throws IOException
