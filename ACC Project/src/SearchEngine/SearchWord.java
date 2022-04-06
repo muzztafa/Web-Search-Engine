@@ -31,7 +31,7 @@ public class SearchWord {
 				data.close();
 				Pattern p = Pattern.compile("::");
 				String[] file_name = p.split(txt);
-				WordFrequency = Search.wordSearch(txt, wordToSearch.toLowerCase(), file.getName()); // search word in txt files
+				WordFrequency = Search.wordSearch(txt, wordToSearch.toLowerCase(), file.getName());
 
 				if (WordFrequency != 0) {
 					FileList.put(file.getName(), WordFrequency);
@@ -41,20 +41,17 @@ public class SearchWord {
 			if(TotFiles>0) {
 				System.out.println("\nTotal number of files containing word : " + wordToSearch + " is : " + TotFiles);
 			}else {
-				System.out.println("\n File not found! containing word : "+ wordToSearch);
-				PredictWord.suggestAltWord(wordToSearch.toLowerCase()); // suggest another word if entered word not found
+				System.out.println("\nFile not found! word searched: "+ wordToSearch);
+				System.out.println("Wait.....\n");
+				PredictWord.suggestAltWord(wordToSearch.toLowerCase());
 			}
 
-			RankPages.rankFiles(FileList, TotFiles); 				   //rank the files based on frequency of word count
+			RankPages.rankFiles(FileList, TotFiles); 				   
 
 
 		} catch (Exception e) {
 			System.out.println("Exception:" + e);
 		}
-
-
-
-		//deleteFiles();					// delete the files created if the user do not want to search any other words and want to start with new URL
 	}
 }
 

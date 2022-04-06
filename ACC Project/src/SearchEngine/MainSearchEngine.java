@@ -67,7 +67,31 @@ public class MainSearchEngine {
 				System.out.println("\t\t|  W E B  S E A R C H  |");
 				System.out.println("\t\t------------------------");
 				SearchWord.searchWord();
+				System.out.println("\n1. Search Again\t\t0. Exit");
+				int in = read.nextInt();
+				while(in!=0) {
+					switch(in) {
+					
+					case 1:
+						SearchWord.searchWord();
+						break;
+						
+					case 2:
+						break;
+						
+					default:
+						System.out.println("invalid input.. Please enter valid input..");
+						
+					}
+					
+					System.out.println("\n1. Search Again\t\t0. Exit");
+					in = read.nextInt();
+				}
+				System.out.println("Web Search closed!");
 				break;
+				
+			default:
+				System.out.println("invalid input.. Please enter valid input..");
 			}
 			System.out.println("\n1. Crawl Pages\t\t2. Search\t0. Exit");	
 			mainInput = read.nextInt();

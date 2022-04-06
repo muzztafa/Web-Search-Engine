@@ -20,8 +20,10 @@ public class RankPages {
 		Collections.reverse(fileList);
 
 		if (occur != 0) {
-			
-			System.out.println("------Top 5 search results -----");
+			if(occur > 5)
+				System.out.println("\n------ Top 5 search results ------");
+			else
+				System.out.println("\n------ Top "+occur+" search results ------");
 
 			int noOfFetch = 5;
 			int j = 0;
