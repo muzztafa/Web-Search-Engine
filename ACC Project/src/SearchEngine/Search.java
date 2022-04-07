@@ -9,9 +9,7 @@ public class Search {
 		ArrayList<Integer> offsets = boyerMoore.searchOccurences(data);
 		counter = offsets.size();
 		if (counter != 0) {
-			System.out.println("Found in HTML file --> " + fileName + " --> " + counter + " times"); // Founded from
-																										// which HTML
-																										// file..
+			System.out.println("Found in HTML file --> " + fileName + " --> " + counter + " times"); 
 			System.out.println("-------------------------------------------------------------------------");
 		}
 		return counter;

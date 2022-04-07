@@ -1,6 +1,7 @@
 package SearchEngine;
 
 import java.io.File;
+import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Scanner;
 import java.util.regex.Pattern;
@@ -10,7 +11,7 @@ public class SearchWord {
 
 	public static void searchWord() {
 
-		Hashtable<String, Integer> FileList = new Hashtable<String, Integer>();
+		HashMap<String, Integer> FileList = new HashMap<String, Integer>();
 
 		System.out.println("\nEnter word:");
 		String wordToSearch = sc.next();

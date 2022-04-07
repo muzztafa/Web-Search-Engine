@@ -26,7 +26,7 @@ public class HTMLtoTEXT {
 		try {
 		File HTMLFile = new File(htmlFile);
 		Document document = Jsoup.parse(HTMLFile, "UTF-8");    
-		String Text = document.text(); 
+		String Text = document.text().toLowerCase(); 
 		BufferedWriter writeText = new BufferedWriter(new FileWriter(textFile)); 
 		writeText.write(Text);
 		writeText.close();
