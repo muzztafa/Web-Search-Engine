@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class RankPages {
 
-	public static void rankFiles(Hashtable<?, Integer> files, int occur) {
+	public static void rankFiles(Hashtable<?, Integer> files, int occurunces) {
 
 		ArrayList<Map.Entry<?, Integer>> fileList = new ArrayList<Map.Entry<?, Integer>>(files.entrySet());
 		Collections.sort(fileList, new Comparator<Map.Entry<?, Integer>>() {
@@ -19,25 +19,17 @@ public class RankPages {
 
 		Collections.reverse(fileList);
 
-		if (occur != 0) {
-			if(occur > 5)
-				System.out.println("\n------ Top 5 search results ------");
+		if (occurunces != 0) {
+			if(occurunces > 10)
+				System.out.println("\n------ Top 10 search results ------");
 			else
-				System.out.println("\n------ Top "+occur+" search results ------");
+				System.out.println("\n------ Top "+occurunces+" search results ------");
 
-			int noOfFetch = 5;
-			int j = 0;
-			int i=1;
-			while (fileList.size() > j && noOfFetch > 0) {
-				
-				
-				if(fileList.get(j).getKey()!=null) {
-				System.out.println("(" + i + ") " + fileList.get(j).getKey());
-				j++;
-				i++;
+			//printing first 10 ranked files
+			for (int k = 0; k < 10; k++) {
+				if(fileList.get(k).getKey()!=null) {
+					System.out.println("(" + (k+1) + ") " + fileList.get(k).getKey());
 				}
-				noOfFetch--;
-				
 			}
 		} 
 	}
