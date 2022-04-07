@@ -13,8 +13,8 @@ public class RankPages {
 
 		ArrayList<Map.Entry<String, Integer>> fileList = new ArrayList<Map.Entry<String, Integer>>(files.entrySet());
 		Collections.sort(fileList, new Comparator<Map.Entry<String, Integer>>() {
-			public int compare(Map.Entry<String, Integer> obj1, Map.Entry<String, Integer> obj2) {
-				return obj1.getValue().compareTo(obj2.getValue());
+			public int compare(Map.Entry<String, Integer> val1, Map.Entry<String, Integer> val2) {
+				return val1.getValue().compareTo(val2.getValue());
 			}
 		});
 
@@ -22,8 +22,8 @@ public class RankPages {
 
 		if (occurunces != 0) {
 			if (occurunces > 10) {
-				System.out.println("\n------ Top 10 search results ------");
 				// printing first 10 ranked files
+				System.out.println("\n------ Top 10 search results ------");
 				for (int k = 0; k < 10; k++) {
 					if (fileList.get(k).getKey() != null) {
 						System.out.println((k + 1) + ": " + fileList.get(k).getKey());

@@ -25,12 +25,20 @@ public class UsingRegularExpression {
      */
     public static void getLinks(String url) {
         Document page;
+        String regex = "^(https?|ftp|file)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]";
+        Pattern p = Pattern.compile(regex);
+        Matcher m = p.matcher(url);
+        
+        if(!m.matches()) {
+        	System.out.println("\nWrong URL input");
+        }
+        else {
+        
         try {
             page = Jsoup.connect(url).get();
             Elements links = page.select("a[href]");
             for (Element link : links) {
                 String absURL = link.attr("abs:href");
-                String regex = "^(https?|ftp|file)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]";
                 Pattern urlPattern = Pattern.compile(regex);
                 Matcher matchURL = urlPattern.matcher(absURL);
                 while (matchURL.find()) {
@@ -39,6 +47,7 @@ public class UsingRegularExpression {
             }
         } catch (IOException error) {
             error.printStackTrace();
+        }
         }
     }
     

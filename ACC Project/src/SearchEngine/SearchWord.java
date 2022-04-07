@@ -16,8 +16,7 @@ public class SearchWord {
 		System.out.println("\nEnter word:");
 		String wordToSearch = sc.next();
 
-		int WordFrequency = 0;
-		int TotFiles = 0;
+		int wordFreq = 0;
 		FileList.clear();
 		try {
 			System.out.println("\nSearching...");
@@ -29,22 +28,21 @@ public class SearchWord {
 				In data = new In(file.getAbsolutePath());
 				String txt = data.readAll();
 				data.close();
-				WordFrequency = Search.wordSearch(txt, wordToSearch.toLowerCase(), file.getName());
+				wordFreq = Search.wordSearch(txt, wordToSearch.toLowerCase(), file.getName());
 
-				if (WordFrequency != 0) {
-					FileList.put(file.getName(), WordFrequency);
-					TotFiles++;
+				if (wordFreq != 0) {
+					FileList.put(file.getName(), wordFreq);
 				}
 			}
-			if (TotFiles > 0) {
-				System.out.println("\nTotal number of files containing word : " + wordToSearch + " is : " + TotFiles);
+			if (FileList.size() > 0) {
+				System.out.println("\nTotal number of files containing word : " + wordToSearch + " is : " + FileList.size());
 			} else {
 				System.out.println("\nFile not found! word searched: " + wordToSearch);
 				System.out.println("Working on getting alternate words.....\n");
 				PredictWord.suggestAltWord(wordToSearch.toLowerCase());
 			}
 
-			RankPages.rankFiles(FileList, TotFiles);
+			RankPages.rankFiles(FileList, FileList.size());
 
 		} catch (Exception e) {
 			System.out.println("Exception:" + e);

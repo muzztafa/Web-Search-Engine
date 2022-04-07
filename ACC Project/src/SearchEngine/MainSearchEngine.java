@@ -17,7 +17,7 @@ public class MainSearchEngine {
 				url = read.next();
 				System.out.println("\nPlease wait...\nCrawling web pages may take few minutes...");
 				Crawler.crawler(url);
-				System.out.println("\nWeb pages crawled successfully!");
+				System.out.println("\nWeb pages crawling completed!");
 				System.out.println();
 				break;
 				
