@@ -15,7 +15,7 @@ public class MainSearchEngine {
 			case 1:
 				System.out.println("\nEnter/paste the complete URL:");
 				url = read.next();
-				System.out.println("\nPlease wait...\nCrwaling web pages may take few minutes...");
+				System.out.println("\nPlease wait...\nCrawling web pages may take few minutes...");
 				Crawler.crawler(url);
 				System.out.println("\nWeb pages crawled successfully!");
 				System.out.println();

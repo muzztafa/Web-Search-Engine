@@ -25,7 +25,7 @@
   <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" media="none" onload="if(media!='all')media='all'"> 
   <link href="https://practice.geeksforgeeks.org/BatchCategoryBundle/static/css/common.css" rel="stylesheet" type="text/css"> 
   <link rel="stylesheet" href="https://use.typekit.net/vja0nps.css" media="none" onload="if(media!='all')media='all'"> 
-  <link rel="stylesheet" href="https://practice.geeksforgeeks.org/css-min/header-footer.css?v=6"> <!-- Google Tag Manager --> 
+  <link rel="stylesheet" href="https://practice.geeksforgeeks.org/css-min/header-footer.css?v=7"> <!-- Google Tag Manager --> 
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -45,11 +45,14 @@
         })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
     </script> <!-- Clarity Tracking Code --> 
   <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "ayq955frd2");
+        if(window.location.pathname!='/dashboard/crm') {
+            (function(c,l,a,r,i,t,y){
+                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+
+            })(window, document, "clarity", "script", "ayq955frd2");
+        }
     </script> <!-- Start VWO Async SmartCode --> 
   <script type="text/javascript">
         window._vwo_code = window._vwo_code || (function(){
@@ -141,8 +144,11 @@ window.settings_timer=setTimeout(function () {_vwo_code.finish() },settings_tole
   <script async src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script> 
   <script async src="https://api.geeksforgeeks.org/js/typeahead.jquery.min.js"></script> 
   <script async src="https://api.geeksforgeeks.org/js/bloodhound.min.js"></script> 
-  <script>var practice_api_url = 'https://practiceapi.geeksforgeeks.org/api/v1/';</script> 
-  <script async src="https://practice.geeksforgeeks.org/js-min/header-footer.js?v=7.6"></script> 
+  <script>
+        var practice_api_url = 'https://practiceapi.geeksforgeeks.org/api/v1/';
+        var practice_api_cdn_url = 'https://practiceapi.geeksforgeeks.org/api/vr/';
+    </script> 
+  <script async src="https://practice.geeksforgeeks.org/js-min/header-footer.js?v=7.7"></script> 
   <script>
         function openGuestLoginModal() {
            if ($('.login-modal-btn')) {
@@ -244,7 +250,77 @@ window.settings_timer=setTimeout(function () {_vwo_code.finish() },settings_tole
    <div class="header-top__times"> <i class="material-icons">close</i> 
    </div> 
   </div> 
-  <div class="header-hellobar-container stick-me"> <!--   --> 
+  <div class="header-hellobar-container stick-me"> <!-- 
+        <div id="hellobar-pusher" class="hellobar-main" style="display:none;">
+            <div class="hello-bar-body" style="color: #ffffff; background-color: #6d2d91;"><div class="hello-bar-content">
+                    
+            <div id="timer-reverse" style="color: #ffffff">
+                <div class="timer-section">
+                    <p id="days">5</p>
+                    <p class="timer-title"> DAYS </p>
+                </div>
+                <div class="timer-section">
+                    <p id="hours" >10</p>
+                    <p class="timer-title"> HOUR</p>
+                </div>
+                <div class="timer-section">
+                    <p id="minutes">2</p>
+                    <p class="timer-title">MINS</p>
+                </div>
+                <div class="timer-section">
+                    <p id="seconds">5</p>
+                    <p class="timer-title">SEC</p>
+                </div>
+            </div>
+            <script>
+            var countDownDate = new Date("2022-04-12 00:00:00").getTime();
+            var x = setInterval(function() {
+                var now = new Date().getTime();
+                var distance = countDownDate - now;
+                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                var timer = document.getElementById("timer-reverse");
+                if(days > 0) {
+                    timer.querySelectorAll(".timer-section")[0].style.display = "block";
+                    timer.querySelector("#days").innerHTML = days;
+                } else {
+                    timer.querySelectorAll(".timer-section")[0].style.display = "none";
+                }
+
+                if(hours > 0) {
+                    timer.querySelectorAll(".timer-section")[1].style.display = "block";
+                    timer.querySelector("#hours").innerHTML = hours;
+                } else {
+                    timer.querySelectorAll(".timer-section")[1].style.display = "none";
+                }
+
+                timer.querySelector("#minutes").innerHTML = minutes;
+                timer.querySelector("#seconds").innerHTML = seconds;
+                if (distance < 0) {
+                    clearInterval(x);
+                    $(".hellobar-main").hide();
+                }
+            }, 1000);
+            </script>
+        
+                    <div class="hello-bar-text">
+                        Beat the Heat with the Geekiest treat of Rewards and Discounts. <a style="color: #700198" target="_blank" href="https://practice.geeksforgeeks.org/summer-carnival-2022">Enter Now</a>
+                    </div>
+                </div>
+                <button class="close-hellobar" aria-label="Aria Close Button">
+                        <img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20201001184607/close-btn.png">
+                </button>
+            </div>
+        </div>
+        <script>
+               setTimeout(function(){ 
+                    $(".hellobar-main").slideDown();
+                }, 3000);
+        </script>
+      --> 
    <div class="hellobarContainer helloBarFadeOut"> 
     <div class="closeHelloBar">
      X
@@ -448,267 +524,259 @@ window.settings_timer=setTimeout(function () {_vwo_code.finish() },settings_tole
      <table class="well table whiteBgColor" cellspacing="0" cellpadding="0" style="margin-bottom:-15px;border:0"> 
       <tbody>
        <tr style="border:0"> 
-        <td class="text-center"> <a href="/company/Amazon/"><b>Amazon</b></a> [1172] </td> 
-        <td class="text-center"> <a href="/company/Microsoft/"><b>Microsoft</b></a> [698] </td> 
-        <td class="text-center"> <a href="/company/Flipkart/"><b>Flipkart</b></a> [354] </td> 
-       </tr> 
+        <td class="text-center"> <a href="/company/Amazon/"><b>Amazon</b></a> [595] </td> 
+        <td class="text-center"> <a href="/company/Microsoft/"><b>Microsoft</b></a> [401] </td> 
+        <td class="text-center"> <a href="/company/Flipkart/"><b>Flipkart</b></a> [159] </td> 
+       </tr>
        <tr style="border:0"> 
-        <td class="text-center"> <a href="/company/Google/"><b>Google</b></a> [339] </td> 
-        <td class="text-center"> <a href="/company/Adobe/"><b>Adobe</b></a> [309] </td> 
-        <td class="text-center"> <a href="/company/Samsung/"><b>Samsung</b></a> [273] </td> 
-       </tr> 
+        <td class="text-center"> <a href="/company/Adobe/"><b>Adobe</b></a> [139] </td> 
+        <td class="text-center"> <a href="/company/Google/"><b>Google</b></a> [130] </td> 
+        <td class="text-center"> <a href="/company/Samsung/"><b>Samsung</b></a> [115] </td> 
+       </tr>
        <tr style="border:0"> 
-        <td class="text-center"> <a href="/company/Accolite/"><b>Accolite</b></a> [253] </td> 
-        <td class="text-center"> <a href="/company/MakeMyTrip/"><b>MakeMyTrip</b></a> [237] </td> 
-        <td class="text-center"> <a href="/company/Snapdeal/"><b>Snapdeal</b></a> [208] </td> 
-       </tr> 
+        <td class="text-center"> <a href="/company/Accolite/"><b>Accolite</b></a> [105] </td> 
+        <td class="text-center"> <a href="/company/MakeMyTrip/"><b>MakeMyTrip</b></a> [91] </td> 
+        <td class="text-center"> <a href="/company/Zoho/"><b>Zoho</b></a> [79] </td> 
+       </tr>
        <tr style="border:0"> 
-        <td class="text-center"> <a href="/company/Paytm/"><b>Paytm</b></a> [187] </td> 
-        <td class="text-center"> <a href="/company/Zoho/"><b>Zoho</b></a> [179] </td> 
-        <td class="text-center"> <a href="/company/Walmart/"><b>Walmart</b></a> [175] </td> 
-       </tr> 
+        <td class="text-center"> <a href="/company/Snapdeal /"><b>Snapdeal </b></a> [76] </td> 
+        <td class="text-center"> <a href="/company/Paytm/"><b>Paytm</b></a> [72] </td> 
+        <td class="text-center"> <a href="/company/Morgan Stanley/"><b>Morgan Stanley</b></a> [67] </td> 
+       </tr>
        <tr style="border:0"> 
-        <td class="text-center"> <a href="/company/Morgan Stanley/"><b>Morgan Stanley</b></a> [170] </td> 
-        <td class="text-center"> <a href="/company/OYO Rooms/"><b>OYO Rooms</b></a> [154] </td> 
-        <td class="text-center"> <a href="/company/Goldman Sachs/"><b>Goldman Sachs</b></a> [152] </td> 
-       </tr> 
+        <td class="text-center"> <a href="/company/Goldman Sachs/"><b>Goldman Sachs</b></a> [65] </td> 
+        <td class="text-center"> <a href="/company/Walmart/"><b>Walmart</b></a> [63] </td> 
+        <td class="text-center"> <a href="/company/OYO Rooms/"><b>OYO Rooms</b></a> [57] </td> 
+       </tr>
        <tr style="border:0"> 
-        <td class="text-center"> <a href="/company/FactSet/"><b>FactSet</b></a> [140] </td> 
-        <td class="text-center"> <a href="/company/D-E-Shaw/"><b>D-E-Shaw</b></a> [133] </td> 
-        <td class="text-center"> <a href="/company/SAP Labs/"><b>SAP Labs</b></a> [131] </td> 
-       </tr> 
+        <td class="text-center"> <a href="/company/FactSet/"><b>FactSet</b></a> [56] </td> 
+        <td class="text-center"> <a href="/company/D-E-Shaw/"><b>D-E-Shaw</b></a> [55] </td> 
+        <td class="text-center"> <a href="/company/Ola Cabs/"><b>Ola Cabs</b></a> [43] </td> 
+       </tr>
        <tr style="border:0"> 
-        <td class="text-center"> <a href="/company/Ola Cabs/"><b>Ola Cabs</b></a> [123] </td> 
-        <td class="text-center"> <a href="/company/Hike/"><b>Hike</b></a> [119] </td> 
-        <td class="text-center"> <a href="/company/MAQ Software/"><b>MAQ Software</b></a> [110] </td> 
-       </tr> 
+        <td class="text-center"> <a href="/company/Oracle/"><b>Oracle</b></a> [42] </td> 
+        <td class="text-center"> <a href="/company/SAP Labs/"><b>SAP Labs</b></a> [41] </td> 
+        <td class="text-center"> <a href="/company/MAQ Software/"><b>MAQ Software</b></a> [41] </td> 
+       </tr>
        <tr style="border:0"> 
-        <td class="text-center"> <a href="/company/Oracle/"><b>Oracle</b></a> [106] </td> 
-        <td class="text-center"> <a href="/company/VMWare/"><b>VMWare</b></a> [97] </td> 
-        <td class="text-center"> <a href="/company/Qualcomm/"><b>Qualcomm</b></a> [92] </td> 
-       </tr> 
+        <td class="text-center"> <a href="/company/Hike/"><b>Hike</b></a> [39] </td> 
+        <td class="text-center"> <a href="/company/VMWare/"><b>VMWare</b></a> [37] </td> 
+        <td class="text-center"> <a href="/company/Qualcomm/"><b>Qualcomm</b></a> [35] </td> 
+       </tr>
        <tr style="border:0"> 
-        <td class="text-center"> <a href="/company/Intuit /"><b>Intuit </b></a> [87] </td> 
-        <td class="text-center"> <a href="/company/Cisco/"><b>Cisco</b></a> [74] </td> 
-        <td class="text-center"> <a href="/company/Facebook/"><b>Facebook</b></a> [71] </td> 
-       </tr> 
+        <td class="text-center"> <a href="/company/Facebook/"><b>Facebook</b></a> [33] </td> 
+        <td class="text-center"> <a href="/company/Cisco/"><b>Cisco</b></a> [31] </td> 
+        <td class="text-center"> <a href="/company/Intuit /"><b>Intuit </b></a> [29] </td> 
+       </tr>
        <tr style="border:0"> 
-        <td class="text-center"> <a href="/company/Visa/"><b>Visa</b></a> [69] </td> 
-        <td class="text-center"> <a href="/company/Directi/"><b>Directi</b></a> [61] </td> 
-        <td class="text-center"> <a href="/company/Linkedin/"><b>Linkedin</b></a> [55] </td> 
-       </tr> 
+        <td class="text-center"> <a href="/company/Visa/"><b>Visa</b></a> [29] </td> 
+        <td class="text-center"> <a href="/company/Directi/"><b>Directi</b></a> [24] </td> 
+        <td class="text-center"> <a href="/company/Linkedin/"><b>Linkedin</b></a> [23] </td> 
+       </tr>
        <tr style="border:0"> 
-        <td class="text-center"> <a href="/company/Payu/"><b>Payu</b></a> [43] </td> 
-        <td class="text-center"> <a href="/company/Yahoo/"><b>Yahoo</b></a> [39] </td> 
-        <td class="text-center"> <a href="/company/Wipro/"><b>Wipro</b></a> [32] </td> 
-       </tr> 
+        <td class="text-center"> <a href="/company/Yahoo/"><b>Yahoo</b></a> [20] </td> 
+        <td class="text-center"> <a href="/company/Payu/"><b>Payu</b></a> [17] </td> 
+        <td class="text-center"> <a href="/company/Wipro/"><b>Wipro</b></a> [16] </td> 
+       </tr>
        <tr style="border:0"> 
-        <td class="text-center"> <a href="/company/Yatra.com/"><b>Yatra.com</b></a> [28] </td> 
-        <td class="text-center"> <a href="/company/Belzabar/"><b>Belzabar</b></a> [26] </td> 
-        <td class="text-center"> <a href="/company/Salesforce/"><b>Salesforce</b></a> [24] </td> 
-       </tr> 
+        <td class="text-center"> <a href="/company/Synopsys/"><b>Synopsys</b></a> [11] </td> 
+        <td class="text-center"> <a href="/company/BankBazaar/"><b>BankBazaar</b></a> [10] </td> 
+        <td class="text-center"> <a href="/company/Salesforce/"><b>Salesforce</b></a> [10] </td> 
+       </tr>
        <tr style="border:0"> 
-        <td class="text-center"> <a href="/company/Housing.com/"><b>Housing.com</b></a> [24] </td> 
-        <td class="text-center"> <a href="/company/Synopsys/"><b>Synopsys</b></a> [23] </td> 
-        <td class="text-center"> <a href="/company/Teradata/"><b>Teradata</b></a> [23] </td> 
-       </tr> 
+        <td class="text-center"> <a href="/company/Citrix/"><b>Citrix</b></a> [10] </td> 
+        <td class="text-center"> <a href="/company/Codenation/"><b>Codenation</b></a> [9] </td> 
+        <td class="text-center"> <a href="/company/TCS/"><b>TCS</b></a> [8] </td> 
+       </tr>
        <tr style="border:0"> 
-        <td class="text-center"> <a href="/company/BankBazaar/"><b>BankBazaar</b></a> [22] </td> 
-        <td class="text-center"> <a href="/company/Codenation/"><b>Codenation</b></a> [22] </td> 
-        <td class="text-center"> <a href="/company/Citrix/"><b>Citrix</b></a> [21] </td> 
-       </tr> 
+        <td class="text-center"> <a href="/company/24*7 Innovation Labs/"><b>24*7 Innovation Labs</b></a> [7] </td> 
+        <td class="text-center"> <a href="/company/Twitter/"><b>Twitter</b></a> [7] </td> 
+        <td class="text-center"> <a href="/company/PayPal/"><b>PayPal</b></a> [7] </td> 
+       </tr>
        <tr style="border:0"> 
-        <td class="text-center"> <a href="/company/Mahindra Comviva/"><b>Mahindra Comviva</b></a> [20] </td> 
-        <td class="text-center"> <a href="/company/TCS/"><b>TCS</b></a> [19] </td> 
-        <td class="text-center"> <a href="/company/InMobi/"><b>InMobi</b></a> [16] </td> 
-       </tr> 
+        <td class="text-center"> <a href="/company/InMobi/"><b>InMobi</b></a> [7] </td> 
+        <td class="text-center"> <a href="/company/Amdocs/"><b>Amdocs</b></a> [6] </td> 
+        <td class="text-center"> <a href="/company/InfoEdge/"><b>InfoEdge</b></a> [6] </td> 
+       </tr>
        <tr style="border:0"> 
-        <td class="text-center"> <a href="/company/24*7 Innovation Labs/"><b>24*7 Innovation Labs</b></a> [16] </td> 
-        <td class="text-center"> <a href="/company/One97/"><b>One97</b></a> [15] </td> 
-        <td class="text-center"> <a href="/company/Apple/"><b>Apple</b></a> [14] </td> 
-       </tr> 
+        <td class="text-center"> <a href="/company/Nagarro /"><b>Nagarro </b></a> [6] </td> 
+        <td class="text-center"> <a href="/company/Yatra.com/"><b>Yatra.com</b></a> [6] </td> 
+        <td class="text-center"> <a href="/company/GE/"><b>GE</b></a> [6] </td> 
+       </tr>
        <tr style="border:0"> 
-        <td class="text-center"> <a href="/company/Times Internet/"><b>Times Internet</b></a> [14] </td> 
-        <td class="text-center"> <a href="/company/Twitter/"><b>Twitter</b></a> [14] </td> 
-        <td class="text-center"> <a href="/company/Veritas/"><b>Veritas</b></a> [14] </td> 
-       </tr> 
+        <td class="text-center"> <a href="/company/Housing.com/"><b>Housing.com</b></a> [6] </td> 
+        <td class="text-center"> <a href="/company/Media.net /"><b>Media.net </b></a> [6] </td> 
+        <td class="text-center"> <a href="/company/Belzabar/"><b>Belzabar</b></a> [5] </td> 
+       </tr>
        <tr style="border:0"> 
-        <td class="text-center"> <a href="/company/PayPal/"><b>PayPal</b></a> [13] </td> 
-        <td class="text-center"> <a href="/company/Tejas Network/"><b>Tejas Network</b></a> [12] </td> 
-        <td class="text-center"> <a href="/company/Boomerang Commerce/"><b>Boomerang Commerce</b></a> [12] </td> 
-       </tr> 
+        <td class="text-center"> <a href="/company/CouponDunia/"><b>CouponDunia</b></a> [5] </td> 
+        <td class="text-center"> <a href="/company/Quikr/"><b>Quikr</b></a> [5] </td> 
+        <td class="text-center"> <a href="/company/Kritikal Solutions/"><b>Kritikal Solutions</b></a> [5] </td> 
+       </tr>
        <tr style="border:0"> 
-        <td class="text-center"> <a href="/company/Groupon/"><b>Groupon</b></a> [12] </td> 
-        <td class="text-center"> <a href="/company/InfoEdge/"><b>InfoEdge</b></a> [12] </td> 
-        <td class="text-center"> <a href="/company/Nutanix/"><b>Nutanix</b></a> [12] </td> 
-       </tr> 
+        <td class="text-center"> <a href="/company/Rockstand/"><b>Rockstand</b></a> [5] </td> 
+        <td class="text-center"> <a href="/company/Oxigen Wallet/"><b>Oxigen Wallet</b></a> [5] </td> 
+        <td class="text-center"> <a href="/company/Grofers/"><b>Grofers</b></a> [5] </td> 
+       </tr>
        <tr style="border:0"> 
-        <td class="text-center"> <a href="/company/Brocade/"><b>Brocade</b></a> [12] </td> 
-        <td class="text-center"> <a href="/company/Myntra/"><b>Myntra</b></a> [12] </td> 
-        <td class="text-center"> <a href="/company/CouponDunia/"><b>CouponDunia</b></a> [11] </td> 
-       </tr> 
+        <td class="text-center"> <a href="/company/Myntra/"><b>Myntra</b></a> [5] </td> 
+        <td class="text-center"> <a href="/company/Times Internet/"><b>Times Internet</b></a> [5] </td> 
+        <td class="text-center"> <a href="/company/Teradata/"><b>Teradata</b></a> [5] </td> 
+       </tr>
        <tr style="border:0"> 
-        <td class="text-center"> <a href="/company/ABCO/"><b>ABCO</b></a> [11] </td> 
-        <td class="text-center"> <a href="/company/Cognizant /"><b>Cognizant </b></a> [11] </td> 
-        <td class="text-center"> <a href="/company/Atlassian/"><b>Atlassian</b></a> [11] </td> 
-       </tr> 
+        <td class="text-center"> <a href="/company/Accenture/"><b>Accenture</b></a> [5] </td> 
+        <td class="text-center"> <a href="/company/Juniper Networks/"><b>Juniper Networks</b></a> [5] </td> 
+        <td class="text-center"> <a href="/company/Atlassian/"><b>Atlassian</b></a> [5] </td> 
+       </tr>
        <tr style="border:0"> 
-        <td class="text-center"> <a href="/company/Lybrate/"><b>Lybrate</b></a> [11] </td> 
-        <td class="text-center"> <a href="/company/Amdocs/"><b>Amdocs</b></a> [10] </td> 
-        <td class="text-center"> <a href="/company/IgniteWorld /"><b>IgniteWorld </b></a> [10] </td> 
-       </tr> 
+        <td class="text-center"> <a href="/company/One97/"><b>One97</b></a> [5] </td> 
+        <td class="text-center"> <a href="/company/Boomerang Commerce/"><b>Boomerang Commerce</b></a> [4] </td> 
+        <td class="text-center"> <a href="/company/United Health Group/"><b>United Health Group</b></a> [4] </td> 
+       </tr>
        <tr style="border:0"> 
-        <td class="text-center"> <a href="/company/OATS Systems/"><b>OATS Systems</b></a> [10] </td> 
-        <td class="text-center"> <a href="/company/United Health Group/"><b>United Health Group</b></a> [10] </td> 
-        <td class="text-center"> <a href="/company/Opera/"><b>Opera</b></a> [9] </td> 
-       </tr> 
+        <td class="text-center"> <a href="/company/Veritas/"><b>Veritas</b></a> [4] </td> 
+        <td class="text-center"> <a href="/company/Brocade/"><b>Brocade</b></a> [4] </td> 
+        <td class="text-center"> <a href="/company/BrowserStack/"><b>BrowserStack</b></a> [4] </td> 
+       </tr>
        <tr style="border:0"> 
-        <td class="text-center"> <a href="/company/Oxigen Wallet/"><b>Oxigen Wallet</b></a> [9] </td> 
-        <td class="text-center"> <a href="/company/Nagarro/"><b>Nagarro</b></a> [9] </td> 
-        <td class="text-center"> <a href="/company/Juniper Networks/"><b>Juniper Networks</b></a> [9] </td> 
-       </tr> 
+        <td class="text-center"> <a href="/company/Opera/"><b>Opera</b></a> [4] </td> 
+        <td class="text-center"> <a href="/company/Epic Systems/"><b>Epic Systems</b></a> [4] </td> 
+        <td class="text-center"> <a href="/company/Drishti-Soft/"><b>Drishti-Soft</b></a> [4] </td> 
+       </tr>
        <tr style="border:0"> 
-        <td class="text-center"> <a href="/company/Quikr/"><b>Quikr</b></a> [8] </td> 
-        <td class="text-center"> <a href="/company/Rockstand/"><b>Rockstand</b></a> [8] </td> 
-        <td class="text-center"> <a href="/company/TinyOwl/"><b>TinyOwl</b></a> [8] </td> 
-       </tr> 
+        <td class="text-center"> <a href="/company/Infosys/"><b>Infosys</b></a> [4] </td> 
+        <td class="text-center"> <a href="/company/Groupon/"><b>Groupon</b></a> [4] </td> 
+        <td class="text-center"> <a href="/company/IBM/"><b>IBM</b></a> [4] </td> 
+       </tr>
        <tr style="border:0"> 
-        <td class="text-center"> <a href="/company/GreyOrange /"><b>GreyOrange </b></a> [8] </td> 
-        <td class="text-center"> <a href="/company/Streamoid Technologies/"><b>Streamoid Technologies</b></a> [8] </td> 
-        <td class="text-center"> <a href="/company/Infosys/"><b>Infosys</b></a> [8] </td> 
-       </tr> 
+        <td class="text-center"> <a href="/company/Apple/"><b>Apple</b></a> [4] </td> 
+        <td class="text-center"> <a href="/company/Nutanix/"><b>Nutanix</b></a> [4] </td> 
+        <td class="text-center"> <a href="/company/Moonfrog Labs/"><b>Moonfrog Labs</b></a> [3] </td> 
+       </tr>
        <tr style="border:0"> 
-        <td class="text-center"> <a href="/company/MetLife/"><b>MetLife</b></a> [8] </td> 
-        <td class="text-center"> <a href="/company/Drishti-Soft/"><b>Drishti-Soft</b></a> [8] </td> 
-        <td class="text-center"> <a href="/company/GE/"><b>GE</b></a> [8] </td> 
-       </tr> 
-       <tr style="border:0"> 
-        <td class="text-center"> <a href="/company/PropTiger/"><b>PropTiger</b></a> [8] </td> 
-        <td class="text-center"> <a href="/company/Moonfrog Labs/"><b>Moonfrog Labs</b></a> [8] </td> 
-        <td class="text-center"> <a href="/company/Philips/"><b>Philips</b></a> [8] </td> 
-       </tr> 
-       <tr style="border:0"> 
-        <td class="text-center"> <a href="/company/Polycom/"><b>Polycom</b></a> [8] </td> 
-        <td class="text-center"> <a href="/company/Kritikal Solutions/"><b>Kritikal Solutions</b></a> [8] </td> 
-        <td class="text-center"> <a href="/company/Media.net /"><b>Media.net </b></a> [8] </td> 
-       </tr> 
-       <tr style="border:0"> 
-        <td class="text-center"> <a href="/company/BrowserStack/"><b>BrowserStack</b></a> [7] </td> 
-        <td class="text-center"> <a href="/company/Zillious/"><b>Zillious</b></a> [7] </td> 
-        <td class="text-center"> <a href="/company/Fab.com/"><b>Fab.com</b></a> [7] </td> 
-       </tr> 
-       <tr style="border:0"> 
-        <td class="text-center"> <a href="/company/Accenture/"><b>Accenture</b></a> [7] </td> 
-        <td class="text-center"> <a href="/company/IBM/"><b>IBM</b></a> [6] </td> 
-        <td class="text-center"> <a href="/company/CarWale/"><b>CarWale</b></a> [6] </td> 
-       </tr> 
-       <tr style="border:0"> 
-        <td class="text-center"> <a href="/company/Cadence India/"><b>Cadence India</b></a> [6] </td> 
-        <td class="text-center"> <a href="/company/Epic Systems/"><b>Epic Systems</b></a> [6] </td> 
-        <td class="text-center"> <a href="/company/Grofers/"><b>Grofers</b></a> [6] </td> 
-       </tr> 
-       <tr style="border:0"> 
-        <td class="text-center"> <a href="/company/Nvidia/"><b>Nvidia</b></a> [5] </td> 
-        <td class="text-center"> <a href="/company/Wooker/"><b>Wooker</b></a> [5] </td> 
-        <td class="text-center"> <a href="/company/Monotype Solutions/"><b>Monotype Solutions</b></a> [5] </td> 
-       </tr> 
-       <tr style="border:0"> 
-        <td class="text-center"> <a href="/company/Arcesium/"><b>Arcesium</b></a> [5] </td> 
-        <td class="text-center"> <a href="/company/Bloomberg/"><b>Bloomberg</b></a> [5] </td> 
-        <td class="text-center"> <a href="/company/Sapient/"><b>Sapient</b></a> [4] </td> 
-       </tr> 
-       <tr style="border:0"> 
-        <td class="text-center"> <a href="/company/Xome/"><b>Xome</b></a> [4] </td> 
-        <td class="text-center"> <a href="/company/nearbuy/"><b>nearbuy</b></a> [4] </td> 
-        <td class="text-center"> <a href="/company/Expedia/"><b>Expedia</b></a> [4] </td> 
-       </tr> 
-       <tr style="border:0"> 
-        <td class="text-center"> <a href="/company/Tesco/"><b>Tesco</b></a> [4] </td> 
-        <td class="text-center"> <a href="/company/Airtel/"><b>Airtel</b></a> [4] </td> 
-        <td class="text-center"> <a href="/company/Citicorp/"><b>Citicorp</b></a> [4] </td> 
-       </tr> 
-       <tr style="border:0"> 
-        <td class="text-center"> <a href="/company/eBay/"><b>eBay</b></a> [4] </td> 
-        <td class="text-center"> <a href="/company/Netskope /"><b>Netskope </b></a> [4] </td> 
+        <td class="text-center"> <a href="/company/Netskope /"><b>Netskope </b></a> [3] </td> 
+        <td class="text-center"> <a href="/company/Expedia/"><b>Expedia</b></a> [3] </td> 
         <td class="text-center"> <a href="/company/Kuliza/"><b>Kuliza</b></a> [3] </td> 
-       </tr> 
+       </tr>
        <tr style="border:0"> 
-        <td class="text-center"> <a href="/company/DE Shaw/"><b>DE Shaw</b></a> [3] </td> 
-        <td class="text-center"> <a href="/company/Swiggy/"><b>Swiggy</b></a> [3] </td> 
-        <td class="text-center"> <a href="/company/Dell/"><b>Dell</b></a> [3] </td> 
-       </tr> 
+        <td class="text-center"> <a href="/company/Zillious/"><b>Zillious</b></a> [3] </td> 
+        <td class="text-center"> <a href="/company/Arcesium/"><b>Arcesium</b></a> [3] </td> 
+        <td class="text-center"> <a href="/company/Airtel/"><b>Airtel</b></a> [3] </td> 
+       </tr>
        <tr style="border:0"> 
-        <td class="text-center"> <a href="/company/Infinera/"><b>Infinera</b></a> [3] </td> 
-        <td class="text-center"> <a href="/company/PlaySimple/"><b>PlaySimple</b></a> [3] </td> 
-        <td class="text-center"> <a href="/company/Rivigo/"><b>Rivigo</b></a> [3] </td> 
-       </tr> 
+        <td class="text-center"> <a href="/company/Cognizant /"><b>Cognizant </b></a> [3] </td> 
+        <td class="text-center"> <a href="/company/Sapient/"><b>Sapient</b></a> [3] </td> 
+        <td class="text-center"> <a href="/company/Nvidia/"><b>Nvidia</b></a> [3] </td> 
+       </tr>
        <tr style="border:0"> 
-        <td class="text-center"> <a href="/company/Intel/"><b>Intel</b></a> [3] </td> 
-        <td class="text-center"> <a href="/company/Pubmatic/"><b>Pubmatic</b></a> [3] </td> 
-        <td class="text-center"> <a href="/company/Vizury Interactive Solutions/"><b>Vizury Interactive Solutions</b></a> [3] </td> 
-       </tr> 
-       <tr style="border:0"> 
-        <td class="text-center"> <a href="/company/Zycus/"><b>Zycus</b></a> [3] </td> 
         <td class="text-center"> <a href="/company/Jabong/"><b>Jabong</b></a> [3] </td> 
-        <td class="text-center"> <a href="/company/Informatica/"><b>Informatica</b></a> [3] </td> 
-       </tr> 
+        <td class="text-center"> <a href="/company/GreyOrange/"><b>GreyOrange</b></a> [3] </td> 
+        <td class="text-center"> <a href="/company/OATS Systems/"><b>OATS Systems</b></a> [3] </td> 
+       </tr>
        <tr style="border:0"> 
-        <td class="text-center"> <a href="/company/Sprinklr/"><b>Sprinklr</b></a> [2] </td> 
+        <td class="text-center"> <a href="/company/ABCO/"><b>ABCO</b></a> [3] </td> 
+        <td class="text-center"> <a href="/company/IgniteWorld /"><b>IgniteWorld </b></a> [2] </td> 
         <td class="text-center"> <a href="/company/Medlife/"><b>Medlife</b></a> [2] </td> 
-        <td class="text-center"> <a href="/company/Dunzo/"><b>Dunzo</b></a> [2] </td> 
-       </tr> 
+       </tr>
        <tr style="border:0"> 
-        <td class="text-center"> <a href="/company/Unisys/"><b>Unisys</b></a> [2] </td> 
-        <td class="text-center"> <a href="/company/Mobicip/"><b>Mobicip</b></a> [2] </td> 
-        <td class="text-center"> <a href="/company/Dailyhunt/"><b>Dailyhunt</b></a> [2] </td> 
-       </tr> 
-       <tr style="border:0"> 
-        <td class="text-center"> <a href="/company/National Instruments/"><b>National Instruments</b></a> [2] </td> 
-        <td class="text-center"> <a href="/company/Komli Media/"><b>Komli Media</b></a> [2] </td> 
-        <td class="text-center"> <a href="/company/Target Corporation/"><b>Target Corporation</b></a> [2] </td> 
-       </tr> 
-       <tr style="border:0"> 
+        <td class="text-center"> <a href="/company/Informatica/"><b>Informatica</b></a> [2] </td> 
         <td class="text-center"> <a href="/company/Junglee Games/"><b>Junglee Games</b></a> [2] </td> 
         <td class="text-center"> <a href="/company/Taxi4Sure/"><b>Taxi4Sure</b></a> [2] </td> 
+       </tr>
+       <tr style="border:0"> 
+        <td class="text-center"> <a href="/company/Pubmatic/"><b>Pubmatic</b></a> [2] </td> 
+        <td class="text-center"> <a href="/company/TinyOwl/"><b>TinyOwl</b></a> [2] </td> 
+        <td class="text-center"> <a href="/company/Dell/"><b>Dell</b></a> [2] </td> 
+       </tr>
+       <tr style="border:0"> 
+        <td class="text-center"> <a href="/company/Monotype Solutions/"><b>Monotype Solutions</b></a> [2] </td> 
+        <td class="text-center"> <a href="/company/Citicorp/"><b>Citicorp</b></a> [2] </td> 
+        <td class="text-center"> <a href="/company/Swiggy/"><b>Swiggy</b></a> [2] </td> 
+       </tr>
+       <tr style="border:0"> 
+        <td class="text-center"> <a href="/company/nearbuy/"><b>nearbuy</b></a> [2] </td> 
+        <td class="text-center"> <a href="/company/National Instruments/"><b>National Instruments</b></a> [2] </td> 
+        <td class="text-center"> <a href="/company/Mahindra Comviva/"><b>Mahindra Comviva</b></a> [2] </td> 
+       </tr>
+       <tr style="border:0"> 
+        <td class="text-center"> <a href="/company/Tejas Network/"><b>Tejas Network</b></a> [2] </td> 
         <td class="text-center"> <a href="/company/HSBC/"><b>HSBC</b></a> [2] </td> 
-       </tr> 
+        <td class="text-center"> <a href="/company/Fab.com/"><b>Fab.com</b></a> [2] </td> 
+       </tr>
        <tr style="border:0"> 
-        <td class="text-center"> <a href="/company/HCL/"><b>HCL</b></a> [2] </td> 
-        <td class="text-center"> <a href="/company/FreeCharge/"><b>FreeCharge</b></a> [2] </td> 
-        <td class="text-center"> <a href="/company/Service Now/"><b>Service Now</b></a> [2] </td> 
-       </tr> 
+        <td class="text-center"> <a href="/company/Streamoid Technologies/"><b>Streamoid Technologies</b></a> [2] </td> 
+        <td class="text-center"> <a href="/company/Bloomberg/"><b>Bloomberg</b></a> [2] </td> 
+        <td class="text-center"> <a href="/company/Tesco/"><b>Tesco</b></a> [2] </td> 
+       </tr>
        <tr style="border:0"> 
-        <td class="text-center"> <a href="/company/Mallow Technologies/"><b>Mallow Technologies</b></a> [1] </td> 
-        <td class="text-center"> <a href="/company/CGI/"><b>CGI</b></a> [1] </td> 
-        <td class="text-center"> <a href="/company/Zopper/"><b>Zopper</b></a> [1] </td> 
-       </tr> 
+        <td class="text-center"> <a href="/company/Target Corporation/"><b>Target Corporation</b></a> [2] </td> 
+        <td class="text-center"> <a href="/company/Xome/"><b>Xome</b></a> [2] </td> 
+        <td class="text-center"> <a href="/company/Komli Media/"><b>Komli Media</b></a> [2] </td> 
+       </tr>
        <tr style="border:0"> 
-        <td class="text-center"> <a href="/company/redBus/"><b>redBus</b></a> [1] </td> 
-        <td class="text-center"> <a href="/company/KLA Tencor/"><b>KLA Tencor</b></a> [1] </td> 
-        <td class="text-center"> <a href="/company/Open Solutions/"><b>Open Solutions</b></a> [1] </td> 
-       </tr> 
+        <td class="text-center"> <a href="/company/CarWale/"><b>CarWale</b></a> [2] </td> 
+        <td class="text-center"> <a href="/company/Polycom/"><b>Polycom</b></a> [2] </td> 
+        <td class="text-center"> <a href="/company/Philips/"><b>Philips</b></a> [2] </td> 
+       </tr>
        <tr style="border:0"> 
-        <td class="text-center"> <a href="/company/American Express/"><b>American Express</b></a> [1] </td> 
-        <td class="text-center"> <a href="/company/Practo/"><b>Practo</b></a> [1] </td> 
-        <td class="text-center"> <a href="/company/Bidgely/"><b>Bidgely</b></a> [1] </td> 
-       </tr> 
+        <td class="text-center"> <a href="/company/DE Shaw/"><b>DE Shaw</b></a> [2] </td> 
+        <td class="text-center"> <a href="/company/Wooker/"><b>Wooker</b></a> [1] </td> 
+        <td class="text-center"> <a href="/company/FreeCharge/"><b>FreeCharge</b></a> [1] </td> 
+       </tr>
        <tr style="border:0"> 
-        <td class="text-center"> <a href="/company/Uber/"><b>Uber</b></a> [1] </td> 
         <td class="text-center"> <a href="/company/Yodlee Infotech/"><b>Yodlee Infotech</b></a> [1] </td> 
-        <td class="text-center"> <a href="/company/Code Brew/"><b>Code Brew</b></a> [1] </td> 
-       </tr> 
+        <td class="text-center"> <a href="/company/Service Now/"><b>Service Now</b></a> [1] </td> 
+        <td class="text-center"> <a href="/company/HunanAsset/"><b>HunanAsset</b></a> [1] </td> 
+       </tr>
        <tr style="border:0"> 
-        <td class="text-center"> <a href="/company/Cavisson System/"><b>Cavisson System</b></a> [1] </td> 
+        <td class="text-center"> <a href="/company/Infinera/"><b>Infinera</b></a> [1] </td> 
         <td class="text-center"> <a href="/company/Motlay/"><b>Motlay</b></a> [1] </td> 
         <td class="text-center"> <a href="/company/Zomato/"><b>Zomato</b></a> [1] </td> 
-       </tr> 
+       </tr>
        <tr style="border:0"> 
-        <td class="text-center"> <a href="/company/Freshokartz/"><b>Freshokartz</b></a> [1] </td> 
         <td class="text-center"> <a href="/company/Huawei/"><b>Huawei</b></a> [1] </td> 
-        <td class="text-center"> <a href="/company/Knowlarity/"><b>Knowlarity</b></a> [1] </td> 
-       </tr> 
+        <td class="text-center"> <a href="/company/eBay/"><b>eBay</b></a> [1] </td> 
+        <td class="text-center"> <a href="/company/Zopper/"><b>Zopper</b></a> [1] </td> 
+       </tr>
        <tr style="border:0"> 
-        <td class="text-center"> <a href="/company/HunanAsset/"><b>HunanAsset</b></a> [1] </td> 
+        <td class="text-center"> <a href="/company/Zycus/"><b>Zycus</b></a> [1] </td> 
+        <td class="text-center"> <a href="/company/Unisys/"><b>Unisys</b></a> [1] </td> 
+        <td class="text-center"> <a href="/company/Vizury Interactive Solutions/"><b>Vizury Interactive Solutions</b></a> [1] </td> 
+       </tr>
+       <tr style="border:0"> 
+        <td class="text-center"> <a href="/company/Dailyhunt/"><b>Dailyhunt</b></a> [1] </td> 
+        <td class="text-center"> <a href="/company/Freshokartz/"><b>Freshokartz</b></a> [1] </td> 
+        <td class="text-center"> <a href="/company/CGI/"><b>CGI</b></a> [1] </td> 
+       </tr>
+       <tr style="border:0"> 
+        <td class="text-center"> <a href="/company/Dunzo/"><b>Dunzo</b></a> [1] </td> 
+        <td class="text-center"> <a href="/company/Lybrate/"><b>Lybrate</b></a> [1] </td> 
+        <td class="text-center"> <a href="/company/Knowlarity/"><b>Knowlarity</b></a> [1] </td> 
+       </tr>
+       <tr style="border:0"> 
+        <td class="text-center"> <a href="/company/Code Brew/"><b>Code Brew</b></a> [1] </td> 
+        <td class="text-center"> <a href="/company/MetLife/"><b>MetLife</b></a> [1] </td> 
+        <td class="text-center"> <a href="/company/Mobicip/"><b>Mobicip</b></a> [1] </td> 
+       </tr>
+       <tr style="border:0"> 
+        <td class="text-center"> <a href="/company/Bidgely/"><b>Bidgely</b></a> [1] </td> 
+        <td class="text-center"> <a href="/company/HCL/"><b>HCL</b></a> [1] </td> 
+        <td class="text-center"> <a href="/company/Sprinklr/"><b>Sprinklr</b></a> [1] </td> 
+       </tr>
+       <tr style="border:0"> 
+        <td class="text-center"> <a href="/company/redBus/"><b>redBus</b></a> [1] </td> 
+        <td class="text-center"> <a href="/company/PropTiger/"><b>PropTiger</b></a> [1] </td> 
+        <td class="text-center"> <a href="/company/Cadence India/"><b>Cadence India</b></a> [1] </td> 
+       </tr>
+       <tr style="border:0"> 
+        <td class="text-center"> <a href="/company/Open Solutions/"><b>Open Solutions</b></a> [1] </td> 
+        <td class="text-center"> <a href="/company/American Express/"><b>American Express</b></a> [1] </td> 
+        <td class="text-center"> <a href="/company/Cavisson System/"><b>Cavisson System</b></a> [1] </td> 
+       </tr>
+       <tr style="border:0"> 
+        <td class="text-center"> <a href="/company/KLA Tencor/"><b>KLA Tencor</b></a> [1] </td> 
+        <td class="text-center"> <a href="/company/Intel/"><b>Intel</b></a> [1] </td> 
+        <td class="text-center"> <a href="/company/PlaySimple/"><b>PlaySimple</b></a> [1] </td> 
        </tr> 
       </tbody>
      </table> 

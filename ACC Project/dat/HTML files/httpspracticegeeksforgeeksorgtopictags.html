@@ -25,7 +25,7 @@
   <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" media="none" onload="if(media!='all')media='all'"> 
   <link href="https://practice.geeksforgeeks.org/BatchCategoryBundle/static/css/common.css" rel="stylesheet" type="text/css"> 
   <link rel="stylesheet" href="https://use.typekit.net/vja0nps.css" media="none" onload="if(media!='all')media='all'"> 
-  <link rel="stylesheet" href="https://practice.geeksforgeeks.org/css-min/header-footer.css?v=6"> <!-- Google Tag Manager --> 
+  <link rel="stylesheet" href="https://practice.geeksforgeeks.org/css-min/header-footer.css?v=7"> <!-- Google Tag Manager --> 
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -45,11 +45,14 @@
         })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
     </script> <!-- Clarity Tracking Code --> 
   <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "ayq955frd2");
+        if(window.location.pathname!='/dashboard/crm') {
+            (function(c,l,a,r,i,t,y){
+                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+
+            })(window, document, "clarity", "script", "ayq955frd2");
+        }
     </script> <!-- Start VWO Async SmartCode --> 
   <script type="text/javascript">
         window._vwo_code = window._vwo_code || (function(){
@@ -141,8 +144,11 @@ window.settings_timer=setTimeout(function () {_vwo_code.finish() },settings_tole
   <script async src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script> 
   <script async src="https://api.geeksforgeeks.org/js/typeahead.jquery.min.js"></script> 
   <script async src="https://api.geeksforgeeks.org/js/bloodhound.min.js"></script> 
-  <script>var practice_api_url = 'https://practiceapi.geeksforgeeks.org/api/v1/';</script> 
-  <script async src="https://practice.geeksforgeeks.org/js-min/header-footer.js?v=7.6"></script> 
+  <script>
+        var practice_api_url = 'https://practiceapi.geeksforgeeks.org/api/v1/';
+        var practice_api_cdn_url = 'https://practiceapi.geeksforgeeks.org/api/vr/';
+    </script> 
+  <script async src="https://practice.geeksforgeeks.org/js-min/header-footer.js?v=7.7"></script> 
   <script>
         function openGuestLoginModal() {
            if ($('.login-modal-btn')) {
@@ -244,7 +250,77 @@ window.settings_timer=setTimeout(function () {_vwo_code.finish() },settings_tole
    <div class="header-top__times"> <i class="material-icons">close</i> 
    </div> 
   </div> 
-  <div class="header-hellobar-container stick-me"> <!--   --> 
+  <div class="header-hellobar-container stick-me"> <!-- 
+        <div id="hellobar-pusher" class="hellobar-main" style="display:none;">
+            <div class="hello-bar-body" style="color: #ffffff; background-color: #6d2d91;"><div class="hello-bar-content">
+                    
+            <div id="timer-reverse" style="color: #ffffff">
+                <div class="timer-section">
+                    <p id="days">5</p>
+                    <p class="timer-title"> DAYS </p>
+                </div>
+                <div class="timer-section">
+                    <p id="hours" >10</p>
+                    <p class="timer-title"> HOUR</p>
+                </div>
+                <div class="timer-section">
+                    <p id="minutes">2</p>
+                    <p class="timer-title">MINS</p>
+                </div>
+                <div class="timer-section">
+                    <p id="seconds">5</p>
+                    <p class="timer-title">SEC</p>
+                </div>
+            </div>
+            <script>
+            var countDownDate = new Date("2022-04-12 00:00:00").getTime();
+            var x = setInterval(function() {
+                var now = new Date().getTime();
+                var distance = countDownDate - now;
+                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                var timer = document.getElementById("timer-reverse");
+                if(days > 0) {
+                    timer.querySelectorAll(".timer-section")[0].style.display = "block";
+                    timer.querySelector("#days").innerHTML = days;
+                } else {
+                    timer.querySelectorAll(".timer-section")[0].style.display = "none";
+                }
+
+                if(hours > 0) {
+                    timer.querySelectorAll(".timer-section")[1].style.display = "block";
+                    timer.querySelector("#hours").innerHTML = hours;
+                } else {
+                    timer.querySelectorAll(".timer-section")[1].style.display = "none";
+                }
+
+                timer.querySelector("#minutes").innerHTML = minutes;
+                timer.querySelector("#seconds").innerHTML = seconds;
+                if (distance < 0) {
+                    clearInterval(x);
+                    $(".hellobar-main").hide();
+                }
+            }, 1000);
+            </script>
+        
+                    <div class="hello-bar-text">
+                        Beat the Heat with the Geekiest treat of Rewards and Discounts. <a style="color: #700198" target="_blank" href="https://practice.geeksforgeeks.org/summer-carnival-2022">Enter Now</a>
+                    </div>
+                </div>
+                <button class="close-hellobar" aria-label="Aria Close Button">
+                        <img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20201001184607/close-btn.png">
+                </button>
+            </div>
+        </div>
+        <script>
+               setTimeout(function(){ 
+                    $(".hellobar-main").slideDown();
+                }, 3000);
+        </script>
+      --> 
    <div class="hellobarContainer helloBarFadeOut"> 
     <div class="closeHelloBar">
      X
@@ -448,68 +524,68 @@ window.settings_timer=setTimeout(function () {_vwo_code.finish() },settings_tole
      <fieldset class="whiteBgColor" id="dataStructures" style="margin-bottom:-8px !important;"> <legend><a href="#dataStructures" style="color:green;">Data Structures</a></legend> 
       <div class="row" style="margin-bottom:8px;"> 
        <div class="col-xs-4 ">
-        <a href="/topics/Arrays/"><b>Arrays</b></a> [1003]
+        <a href="/topics/Arrays/"><b>Arrays</b></a> [582]
        </div> 
        <div class="col-xs-4">
-        <a href="/topics/Strings/"><b>Strings</b></a> [708]
+        <a href="/topics/Strings/"><b>Strings</b></a> [364]
        </div> 
        <div class="col-xs-4">
-        <a href="/topics/Hash/"><b>Hash</b></a> [256]
+        <a href="/topics/Tree/"><b>Tree</b></a> [164]
        </div> 
       </div> 
       <div class="row" style="margin-bottom:8px;"> 
        <div class="col-xs-4 ">
-        <a href="/topics/Tree/"><b>Tree</b></a> [224]
+        <a href="/topics/Hash/"><b>Hash</b></a> [136]
        </div> 
        <div class="col-xs-4">
-        <a href="/topics/Matrix/"><b>Matrix</b></a> [191]
+        <a href="/topics/Matrix/"><b>Matrix</b></a> [99]
        </div> 
        <div class="col-xs-4">
-        <a href="/topics/Graph/"><b>Graph</b></a> [188]
+        <a href="/topics/Linked List/"><b>Linked List</b></a> [93]
        </div> 
       </div> 
       <div class="row" style="margin-bottom:8px;"> 
        <div class="col-xs-4 ">
-        <a href="/topics/Linked List/"><b>Linked List</b></a> [157]
+        <a href="/topics/Graph/"><b>Graph</b></a> [80]
        </div> 
        <div class="col-xs-4">
-        <a href="/topics/Stack/"><b>Stack</b></a> [134]
+        <a href="/topics/Stack/"><b>Stack</b></a> [59]
        </div> 
        <div class="col-xs-4">
-        <a href="/topics/Binary Search Tree/"><b>Binary Search Tree</b></a> [83]
+        <a href="/topics/Binary Search Tree/"><b>Binary Search Tree</b></a> [54]
        </div> 
       </div> 
       <div class="row" style="margin-bottom:8px;"> 
        <div class="col-xs-4 ">
-        <a href="/topics/Queue/"><b>Queue</b></a> [79]
+        <a href="/topics/Queue/"><b>Queue</b></a> [33]
        </div> 
        <div class="col-xs-4">
-        <a href="/topics/Heap/"><b>Heap</b></a> [69]
+        <a href="/topics/Heap/"><b>Heap</b></a> [29]
        </div> 
        <div class="col-xs-4">
-        <a href="/topics/Map/"><b>Map</b></a> [42]
+        <a href="/topics/Map/"><b>Map</b></a> [27]
        </div> 
       </div> 
       <div class="row" style="margin-bottom:8px;"> 
        <div class="col-xs-4 ">
-        <a href="/topics/Segment-Tree/"><b>Segment-Tree</b></a> [42]
+        <a href="/topics/Trie/"><b>Trie</b></a> [17]
        </div> 
        <div class="col-xs-4">
-        <a href="/topics/Trie/"><b>Trie</b></a> [41]
+        <a href="/topics/Segment-Tree/"><b>Segment-Tree</b></a> [8]
        </div> 
        <div class="col-xs-4">
-        <a href="/topics/priority-queue/"><b>priority-queue</b></a> [21]
+        <a href="/topics/priority-queue/"><b>priority-queue</b></a> [5]
        </div> 
       </div> 
       <div class="row" style="margin-bottom:8px;"> 
        <div class="col-xs-4 ">
-        <a href="/topics/Data Structures/"><b>Data Structures</b></a> [17]
-       </div> 
-       <div class="col-xs-4">
-        <a href="/topics/Binary Indexed Tree/"><b>Binary Indexed Tree</b></a> [7]
+        <a href="/topics/Data Structures/"><b>Data Structures</b></a> [4]
        </div> 
        <div class="col-xs-4">
         <a href="/topics/AVL-Tree/"><b>AVL-Tree</b></a> [1]
+       </div> 
+       <div class="col-xs-4">
+        <a href="/topics/Binary Indexed Tree/"><b>Binary Indexed Tree</b></a> [1]
        </div> 
       </div>  
      </fieldset> 
@@ -517,95 +593,95 @@ window.settings_timer=setTimeout(function () {_vwo_code.finish() },settings_tole
      <fieldset class="whiteBgColor" id="algorithms" style="margin-bottom:-8px !important" ;> <legend><a href="#algorithms" style="color:green">Algorithms</a></legend> 
       <div class="row" style="margin-bottom:8px;"> 
        <div class="col-xs-4">
-        <a href="/topics/Mathematical/"><b>Mathematical</b></a> [1039]
+        <a href="/topics/Mathematical/"><b>Mathematical</b></a> [584]
        </div> 
        <div class="col-xs-4">
-        <a href="/topics/Dynamic Programming/"><b>Dynamic Programming</b></a> [456]
+        <a href="/topics/Dynamic Programming/"><b>Dynamic Programming</b></a> [240]
        </div> 
        <div class="col-xs-4">
-        <a href="/topics/Sorting/"><b>Sorting</b></a> [243]
-       </div> 
-      </div> 
-      <div class="row" style="margin-bottom:8px;"> 
-       <div class="col-xs-4">
-        <a href="/topics/Bit Magic/"><b>Bit Magic</b></a> [197]
-       </div> 
-       <div class="col-xs-4">
-        <a href="/topics/Searching/"><b>Searching</b></a> [162]
-       </div> 
-       <div class="col-xs-4">
-        <a href="/topics/Recursion/"><b>Recursion</b></a> [127]
+        <a href="/topics/Sorting/"><b>Sorting</b></a> [126]
        </div> 
       </div> 
       <div class="row" style="margin-bottom:8px;"> 
        <div class="col-xs-4">
-        <a href="/topics/Greedy/"><b>Greedy</b></a> [109]
+        <a href="/topics/Bit Magic/"><b>Bit Magic</b></a> [120]
        </div> 
        <div class="col-xs-4">
-        <a href="/topics/Prime Number/"><b>Prime Number</b></a> [92]
+        <a href="/topics/Searching/"><b>Searching</b></a> [68]
        </div> 
        <div class="col-xs-4">
-        <a href="/topics/Binary Search/"><b>Binary Search</b></a> [81]
-       </div> 
-      </div> 
-      <div class="row" style="margin-bottom:8px;"> 
-       <div class="col-xs-4">
-        <a href="/topics/DFS/"><b>DFS</b></a> [80]
-       </div> 
-       <div class="col-xs-4">
-        <a href="/topics/Backtracking/"><b>Backtracking</b></a> [78]
-       </div> 
-       <div class="col-xs-4">
-        <a href="/topics/Numbers/"><b>Numbers</b></a> [71]
+        <a href="/topics/Recursion/"><b>Recursion</b></a> [59]
        </div> 
       </div> 
       <div class="row" style="margin-bottom:8px;"> 
        <div class="col-xs-4">
-        <a href="/topics/Algorithms/"><b>Algorithms</b></a> [60]
+        <a href="/topics/Prime Number/"><b>Prime Number</b></a> [52]
        </div> 
        <div class="col-xs-4">
-        <a href="/topics/sieve/"><b>sieve</b></a> [59]
+        <a href="/topics/Greedy/"><b>Greedy</b></a> [52]
        </div> 
        <div class="col-xs-4">
-        <a href="/topics/Combinatorial/"><b>Combinatorial</b></a> [58]
-       </div> 
-      </div> 
-      <div class="row" style="margin-bottom:8px;"> 
-       <div class="col-xs-4">
-        <a href="/topics/Divide and Conquer/"><b>Divide and Conquer</b></a> [56]
-       </div> 
-       <div class="col-xs-4">
-        <a href="/topics/BFS/"><b>BFS</b></a> [54]
-       </div> 
-       <div class="col-xs-4">
-        <a href="/topics/Geometric/"><b>Geometric</b></a> [44]
+        <a href="/topics/Numbers/"><b>Numbers</b></a> [47]
        </div> 
       </div> 
       <div class="row" style="margin-bottom:8px;"> 
        <div class="col-xs-4">
-        <a href="/topics/Modular Arithmetic/"><b>Modular Arithmetic</b></a> [43]
+        <a href="/topics/Binary Search/"><b>Binary Search</b></a> [42]
        </div> 
        <div class="col-xs-4">
-        <a href="/topics/Fibonacci/"><b>Fibonacci</b></a> [41]
+        <a href="/topics/DFS/"><b>DFS</b></a> [36]
        </div> 
        <div class="col-xs-4">
-        <a href="/topics/series/"><b>series</b></a> [40]
-       </div> 
-      </div> 
-      <div class="row" style="margin-bottom:8px;"> 
-       <div class="col-xs-4">
-        <a href="/topics/palindrome/"><b>palindrome</b></a> [38]
-       </div> 
-       <div class="col-xs-4">
-        <a href="/topics/Binary Representation/"><b>Binary Representation</b></a> [26]
-       </div> 
-       <div class="col-xs-4">
-        <a href="/topics/Game Theory/"><b>Game Theory</b></a> [23]
+        <a href="/topics/Modular Arithmetic/"><b>Modular Arithmetic</b></a> [31]
        </div> 
       </div> 
       <div class="row" style="margin-bottom:8px;"> 
        <div class="col-xs-4">
-        <a href="/topics/Merge Sort/"><b>Merge Sort</b></a> [10]
+        <a href="/topics/series/"><b>series</b></a> [31]
+       </div> 
+       <div class="col-xs-4">
+        <a href="/topics/sieve/"><b>sieve</b></a> [30]
+       </div> 
+       <div class="col-xs-4">
+        <a href="/topics/Backtracking/"><b>Backtracking</b></a> [28]
+       </div> 
+      </div> 
+      <div class="row" style="margin-bottom:8px;"> 
+       <div class="col-xs-4">
+        <a href="/topics/BFS/"><b>BFS</b></a> [25]
+       </div> 
+       <div class="col-xs-4">
+        <a href="/topics/Combinatorial/"><b>Combinatorial</b></a> [24]
+       </div> 
+       <div class="col-xs-4">
+        <a href="/topics/Algorithms/"><b>Algorithms</b></a> [23]
+       </div> 
+      </div> 
+      <div class="row" style="margin-bottom:8px;"> 
+       <div class="col-xs-4">
+        <a href="/topics/Divide and Conquer/"><b>Divide and Conquer</b></a> [23]
+       </div> 
+       <div class="col-xs-4">
+        <a href="/topics/palindrome/"><b>palindrome</b></a> [23]
+       </div> 
+       <div class="col-xs-4">
+        <a href="/topics/Fibonacci/"><b>Fibonacci</b></a> [18]
+       </div> 
+      </div> 
+      <div class="row" style="margin-bottom:8px;"> 
+       <div class="col-xs-4">
+        <a href="/topics/Geometric/"><b>Geometric</b></a> [17]
+       </div> 
+       <div class="col-xs-4">
+        <a href="/topics/Binary Representation/"><b>Binary Representation</b></a> [13]
+       </div> 
+       <div class="col-xs-4">
+        <a href="/topics/Game Theory/"><b>Game Theory</b></a> [9]
+       </div> 
+      </div> 
+      <div class="row" style="margin-bottom:8px;"> 
+       <div class="col-xs-4">
+        <a href="/topics/Merge Sort/"><b>Merge Sort</b></a> [4]
        </div> 
        <div class="col-xs-4">
         <a href="/topics/Machine Learning/"><b>Machine Learning</b></a> [1]
@@ -616,10 +692,10 @@ window.settings_timer=setTimeout(function () {_vwo_code.finish() },settings_tole
      <fieldset class="whiteBgColor" id="languages" style="margin-bottom:-8px !important;"> <legend><a href="#languages" style="color:green">Languages</a></legend> 
       <div class="row" style="margin-bottom:8px;"> 
        <div class="col-xs-4">
-        <a href="/topics/CPP/"><b>CPP</b></a> [206]
+        <a href="/topics/CPP/"><b>CPP</b></a> [59]
        </div> 
        <div class="col-xs-4">
-        <a href="/topics/Java/"><b>Java</b></a> [178]
+        <a href="/topics/Java/"><b>Java</b></a> [49]
        </div> 
       </div>  
      </fieldset> 
@@ -627,241 +703,175 @@ window.settings_timer=setTimeout(function () {_vwo_code.finish() },settings_tole
      <fieldset class="whiteBgColor" id="others"> <legend><a href="#others" style="color:green">Others</a></legend> 
       <div class="row" style="margin-bottom:8px;"> 
        <div class="col-xs-4">
-        <a href="/topics/STL/"><b>STL</b></a> [152]
+        <a href="/topics/STL/"><b>STL</b></a> [60]
        </div> 
        <div class="col-xs-4">
-        <a href="/topics/sliding-window/"><b>sliding-window</b></a> [68]
+        <a href="/topics/Misc/"><b>Misc</b></a> [40]
        </div> 
        <div class="col-xs-4">
-        <a href="/topics/Java-Collections/"><b>Java-Collections</b></a> [68]
+        <a href="/topics/number-theory/"><b>number-theory</b></a> [38]
        </div> 
       </div> 
       <div class="row" style="margin-bottom:8px;"> 
        <div class="col-xs-4">
-        <a href="/topics/number-theory/"><b>number-theory</b></a> [66]
+        <a href="/topics/two-pointer-algorithm/"><b>two-pointer-algorithm</b></a> [31]
        </div> 
        <div class="col-xs-4">
-        <a href="/topics/two-pointer-algorithm/"><b>two-pointer-algorithm</b></a> [52]
+        <a href="/topics/sliding-window/"><b>sliding-window</b></a> [25]
        </div> 
        <div class="col-xs-4">
-        <a href="/topics/Misc/"><b>Misc</b></a> [52]
+        <a href="/topics/pattern-printing/"><b>pattern-printing</b></a> [19]
        </div> 
       </div> 
       <div class="row" style="margin-bottom:8px;"> 
        <div class="col-xs-4">
-        <a href="/topics/Practice-Problems/"><b>Practice-Problems</b></a> [35]
+        <a href="/topics/permutation/"><b>permutation</b></a> [17]
        </div> 
        <div class="col-xs-4">
-        <a href="/topics/python-loops/"><b>python-loops</b></a> [34]
+        <a href="/topics/logical-thinking/"><b>logical-thinking</b></a> [16]
        </div> 
        <div class="col-xs-4">
-        <a href="/topics/Tutorial-Problems/"><b>Tutorial-Problems</b></a> [31]
+        <a href="/topics/OOP/"><b>OOP</b></a> [15]
        </div> 
       </div> 
       <div class="row" style="margin-bottom:8px;"> 
        <div class="col-xs-4">
-        <a href="/topics/permutation/"><b>permutation</b></a> [27]
+        <a href="/topics/Java-Collections/"><b>Java-Collections</b></a> [15]
        </div> 
        <div class="col-xs-4">
-        <a href="/topics/Design-Pattern/"><b>Design-Pattern</b></a> [26]
+        <a href="/topics/Traversal/"><b>Traversal</b></a> [12]
        </div> 
        <div class="col-xs-4">
-        <a href="/topics/pattern-printing/"><b>pattern-printing</b></a> [26]
+        <a href="/topics/factorial/"><b>factorial</b></a> [12]
        </div> 
       </div> 
       <div class="row" style="margin-bottom:8px;"> 
        <div class="col-xs-4">
-        <a href="/topics/python/"><b>python</b></a> [25]
+        <a href="/topics/Design-Pattern/"><b>Design-Pattern</b></a> [11]
        </div> 
        <div class="col-xs-4">
-        <a href="/topics/python-io/"><b>python-io</b></a> [24]
+        <a href="/topics/prefix-sum/"><b>prefix-sum</b></a> [11]
        </div> 
        <div class="col-xs-4">
-        <a href="/topics/python-operators/"><b>python-operators</b></a> [23]
+        <a href="/topics/set/"><b>set</b></a> [10]
        </div> 
       </div> 
       <div class="row" style="margin-bottom:8px;"> 
        <div class="col-xs-4">
-        <a href="/topics/logical-thinking/"><b>logical-thinking</b></a> [23]
+        <a href="/topics/Pattern Searching/"><b>Pattern Searching</b></a> [9]
        </div> 
        <div class="col-xs-4">
-        <a href="/topics/doubly-linked-list/"><b>doubly-linked-list</b></a> [22]
+        <a href="/topics/doubly-linked-list/"><b>doubly-linked-list</b></a> [9]
        </div> 
        <div class="col-xs-4">
-        <a href="/topics/python-list/"><b>python-list</b></a> [21]
+        <a href="/topics/Operators/"><b>Operators</b></a> [8]
        </div> 
       </div> 
       <div class="row" style="margin-bottom:8px;"> 
        <div class="col-xs-4">
-        <a href="/topics/python-strings/"><b>python-strings</b></a> [21]
+        <a href="/topics/ 	modular arithmetic/"><b> modular arithmetic</b></a> [7]
        </div> 
        <div class="col-xs-4">
-        <a href="/topics/prefix-sum/"><b>prefix-sum</b></a> [20]
+        <a href="/topics/Regular Expression/"><b>Regular Expression</b></a> [7]
        </div> 
        <div class="col-xs-4">
-        <a href="/topics/factorial/"><b>factorial</b></a> [20]
+        <a href="/topics/Division/"><b>Division</b></a> [6]
        </div> 
       </div> 
       <div class="row" style="margin-bottom:8px;"> 
        <div class="col-xs-4">
-        <a href="/topics/implementation/"><b>implementation</b></a> [18]
+        <a href="/topics/subset/"><b>subset</b></a> [6]
        </div> 
        <div class="col-xs-4">
-        <a href="/topics/ python-conditionals/"><b> python-conditionals</b></a> [17]
+        <a href="/topics/circular-linked-list/"><b>circular-linked-list</b></a> [6]
        </div> 
-       <div class="col-xs-4">
-        <a href="/topics/constructive algo/"><b>constructive algo</b></a> [16]
-       </div> 
-      </div> 
-      <div class="row" style="margin-bottom:8px;"> 
-       <div class="col-xs-4">
-        <a href="/topics/Pattern Searching/"><b>Pattern Searching</b></a> [14]
-       </div> 
-       <div class="col-xs-4">
-        <a href="/topics/Traversal/"><b>Traversal</b></a> [13]
-       </div> 
-       <div class="col-xs-4">
-        <a href="/topics/ 	modular arithmetic/"><b> modular arithmetic</b></a> [13]
-       </div> 
-      </div> 
-      <div class="row" style="margin-bottom:8px;"> 
-       <div class="col-xs-4">
-        <a href="/topics/set/"><b>set</b></a> [13]
-       </div> 
-       <div class="col-xs-4">
-        <a href="/topics/Operators/"><b>Operators</b></a> [12]
-       </div> 
-       <div class="col-xs-4">
-        <a href="/topics/Disjoint Set/"><b>Disjoint Set</b></a> [11]
-       </div> 
-      </div> 
-      <div class="row" style="margin-bottom:8px;"> 
-       <div class="col-xs-4">
-        <a href="/topics/subset/"><b>subset</b></a> [10]
-       </div> 
-       <div class="col-xs-4">
-        <a href="/topics/Regular Expression/"><b>Regular Expression</b></a> [10]
-       </div> 
-       <div class="col-xs-4">
-        <a href="/topics/Division/"><b>Division</b></a> [10]
-       </div> 
-      </div> 
-      <div class="row" style="margin-bottom:8px;"> 
-       <div class="col-xs-4">
-        <a href="/topics/circular-linked-list/"><b>circular-linked-list</b></a> [10]
-       </div> 
-       <div class="col-xs-4">
-        <a href="/topics/OOP/"><b>OOP</b></a> [9]
-       </div> 
-       <div class="col-xs-4">
-        <a href="/topics/python-functions/"><b>python-functions</b></a> [9]
-       </div> 
-      </div> 
-      <div class="row" style="margin-bottom:8px;"> 
-       <div class="col-xs-4">
-        <a href="/topics/Java-Strings/"><b>Java-Strings</b></a> [9]
-       </div> 
-       <div class="col-xs-4">
-        <a href="/topics/Shortest Path/"><b>Shortest Path</b></a> [8]
-       </div> 
-       <div class="col-xs-4">
-        <a href="/topics/Puzzles/"><b>Puzzles</b></a> [8]
-       </div> 
-      </div> 
-      <div class="row" style="margin-bottom:8px;"> 
-       <div class="col-xs-4">
-        <a href="/topics/Kadane/"><b>Kadane</b></a> [8]
-       </div> 
-       <div class="col-xs-4">
-        <a href="/topics/Date-Time/"><b>Date-Time</b></a> [8]
-       </div> 
-       <div class="col-xs-4">
-        <a href="/topics/cpp-strings/"><b>cpp-strings</b></a> [7]
-       </div> 
-      </div> 
-      <div class="row" style="margin-bottom:8px;"> 
-       <div class="col-xs-4">
-        <a href="/topics/cpp-operator/"><b>cpp-operator</b></a> [7]
-       </div> 
-       <div class="col-xs-4">
-        <a href="/topics/Java-BigInteger/"><b>Java-BigInteger</b></a> [7]
-       </div> 
-       <div class="col-xs-4">
-        <a href="/topics/Java-Class and Object/"><b>Java-Class and Object</b></a> [7]
-       </div> 
-      </div> 
-      <div class="row" style="margin-bottom:8px;"> 
        <div class="col-xs-4">
         <a href="/topics/Class/"><b>Class</b></a> [6]
        </div> 
+      </div> 
+      <div class="row" style="margin-bottom:8px;"> 
        <div class="col-xs-4">
-        <a href="/topics/Data Type/"><b>Data Type</b></a> [6]
+        <a href="/topics/Java-Strings/"><b>Java-Strings</b></a> [4]
        </div> 
        <div class="col-xs-4">
-        <a href="/topics/python-set/"><b>python-set</b></a> [6]
+        <a href="/topics/implementation/"><b>implementation</b></a> [4]
+       </div> 
+       <div class="col-xs-4">
+        <a href="/topics/Shortest Path/"><b>Shortest Path</b></a> [4]
        </div> 
       </div> 
       <div class="row" style="margin-bottom:8px;"> 
        <div class="col-xs-4">
-        <a href="/topics/python-dict/"><b>python-dict</b></a> [5]
-       </div> 
-       <div class="col-xs-4">
-        <a href="/topics/cpp-pointers/"><b>cpp-pointers</b></a> [5]
-       </div> 
-       <div class="col-xs-4">
-        <a href="/topics/logarithm/"><b>logarithm</b></a> [5]
-       </div> 
-      </div> 
-      <div class="row" style="margin-bottom:8px;"> 
-       <div class="col-xs-4">
-        <a href="/topics/Factorization/"><b>Factorization</b></a> [5]
-       </div> 
-       <div class="col-xs-4">
-        <a href="/topics/ CPP-Control-Flow/"><b> CPP-Control-Flow</b></a> [5]
-       </div> 
-       <div class="col-xs-4">
-        <a href="/topics/inclusion-exclusion/"><b>inclusion-exclusion</b></a> [4]
-       </div> 
-      </div> 
-      <div class="row" style="margin-bottom:8px;"> 
-       <div class="col-xs-4">
-        <a href="/topics/Probability/"><b>Probability</b></a> [4]
-       </div> 
-       <div class="col-xs-4">
-        <a href="/topics/Pointers/"><b>Pointers</b></a> [4]
+        <a href="/topics/cpp-strings/"><b>cpp-strings</b></a> [4]
        </div> 
        <div class="col-xs-4">
         <a href="/topics/Java-Control-Flow/"><b>Java-Control-Flow</b></a> [4]
        </div> 
-      </div> 
-      <div class="row" style="margin-bottom:8px;"> 
        <div class="col-xs-4">
-        <a href="/topics/union-find/"><b>union-find</b></a> [4]
-       </div> 
-       <div class="col-xs-4">
-        <a href="/topics/Sqrt Decomposition/"><b>Sqrt Decomposition</b></a> [4]
-       </div> 
-       <div class="col-xs-4">
-        <a href="/topics/LCS/"><b>LCS</b></a> [3]
+        <a href="/topics/Data Type/"><b>Data Type</b></a> [4]
        </div> 
       </div> 
       <div class="row" style="margin-bottom:8px;"> 
        <div class="col-xs-4">
-        <a href="/topics/Range Minimum Query/"><b>Range Minimum Query</b></a> [3]
+        <a href="/topics/constructive algo/"><b>constructive algo</b></a> [3]
        </div> 
        <div class="col-xs-4">
-        <a href="/topics/anagram/"><b>anagram</b></a> [3]
+        <a href="/topics/Puzzles/"><b>Puzzles</b></a> [3]
+       </div> 
+       <div class="col-xs-4">
+        <a href="/topics/Kadane/"><b>Kadane</b></a> [3]
+       </div> 
+      </div> 
+      <div class="row" style="margin-bottom:8px;"> 
+       <div class="col-xs-4">
+        <a href="/topics/Date-Time/"><b>Date-Time</b></a> [3]
+       </div> 
+       <div class="col-xs-4">
+        <a href="/topics/ CPP-Control-Flow/"><b> CPP-Control-Flow</b></a> [3]
+       </div> 
+       <div class="col-xs-4">
+        <a href="/topics/cpp-pointers/"><b>cpp-pointers</b></a> [3]
+       </div> 
+      </div> 
+      <div class="row" style="margin-bottom:8px;"> 
+       <div class="col-xs-4">
+        <a href="/topics/union-find/"><b>union-find</b></a> [3]
        </div> 
        <div class="col-xs-4">
         <a href="/topics/Functions/"><b>Functions</b></a> [3]
        </div> 
+       <div class="col-xs-4">
+        <a href="/topics/cpp-operator/"><b>cpp-operator</b></a> [3]
+       </div> 
       </div> 
       <div class="row" style="margin-bottom:8px;"> 
        <div class="col-xs-4">
-        <a href="/topics/circular linked list/"><b>circular linked list</b></a> [3]
+        <a href="/topics/Java-BigInteger/"><b>Java-BigInteger</b></a> [3]
+       </div> 
+       <div class="col-xs-4">
+        <a href="/topics/Sqrt Decomposition/"><b>Sqrt Decomposition</b></a> [2]
        </div> 
        <div class="col-xs-4">
         <a href="/topics/Physics/"><b>Physics</b></a> [2]
+       </div> 
+      </div> 
+      <div class="row" style="margin-bottom:8px;"> 
+       <div class="col-xs-4">
+        <a href="/topics/Pointers/"><b>Pointers</b></a> [2]
+       </div> 
+       <div class="col-xs-4">
+        <a href="/topics/anagram/"><b>anagram</b></a> [2]
+       </div> 
+       <div class="col-xs-4">
+        <a href="/topics/circular linked list/"><b>circular linked list</b></a> [2]
+       </div> 
+      </div> 
+      <div class="row" style="margin-bottom:8px;"> 
+       <div class="col-xs-4">
+        <a href="/topics/Practice-Problems/"><b>Practice-Problems</b></a> [2]
+       </div> 
+       <div class="col-xs-4">
+        <a href="/topics/Factorization/"><b>Factorization</b></a> [2]
        </div> 
        <div class="col-xs-4">
         <a href="/topics/Java-Operators/"><b>Java-Operators</b></a> [2]
@@ -869,51 +879,57 @@ window.settings_timer=setTimeout(function () {_vwo_code.finish() },settings_tole
       </div> 
       <div class="row" style="margin-bottom:8px;"> 
        <div class="col-xs-4">
-        <a href="/topics/Gauss Elimination/"><b>Gauss Elimination</b></a> [2]
+        <a href="/topics/Java-Class and Object/"><b>Java-Class and Object</b></a> [2]
        </div> 
        <div class="col-xs-4">
-        <a href="/topics/Operating Systems/"><b>Operating Systems</b></a> [2]
+        <a href="/topics/Disjoint Set/"><b>Disjoint Set</b></a> [2]
        </div> 
        <div class="col-xs-4">
-        <a href="/topics/Reverse/"><b>Reverse</b></a> [2]
+        <a href="/topics/Character Encoding/"><b>Character Encoding</b></a> [2]
        </div> 
       </div> 
       <div class="row" style="margin-bottom:8px;"> 
+       <div class="col-xs-4">
+        <a href="/topics/logarithm/"><b>logarithm</b></a> [2]
+       </div> 
        <div class="col-xs-4">
         <a href="/topics/Quantifiers/"><b>Quantifiers</b></a> [2]
        </div> 
        <div class="col-xs-4">
-        <a href="/topics/cryptography/"><b>cryptography</b></a> [2]
-       </div> 
-       <div class="col-xs-4">
-        <a href="/topics/Graph colouring/"><b>Graph colouring</b></a> [2]
+        <a href="/topics/CPP-Control-Flow/"><b>CPP-Control-Flow</b></a> [1]
        </div> 
       </div> 
       <div class="row" style="margin-bottom:8px;"> 
        <div class="col-xs-4">
-        <a href="/topics/Character Encoding/"><b>Character Encoding</b></a> [2]
+        <a href="/topics/LCS/"><b>LCS</b></a> [1]
        </div> 
        <div class="col-xs-4">
-        <a href="/topics/CPP-Control-Flow/"><b>CPP-Control-Flow</b></a> [1]
+        <a href="/topics/Probability/"><b>Probability</b></a> [1]
        </div> 
+       <div class="col-xs-4">
+        <a href="/topics/Reverse/"><b>Reverse</b></a> [1]
+       </div> 
+      </div> 
+      <div class="row" style="margin-bottom:8px;"> 
        <div class="col-xs-4">
         <a href="/topics/alphabets/"><b>alphabets</b></a> [1]
        </div> 
+       <div class="col-xs-4">
+        <a href="/topics/Operating Systems/"><b>Operating Systems</b></a> [1]
+       </div> 
+       <div class="col-xs-4">
+        <a href="/topics/inclusion-exclusion/"><b>inclusion-exclusion</b></a> [1]
+       </div> 
       </div> 
       <div class="row" style="margin-bottom:8px;"> 
+       <div class="col-xs-4">
+        <a href="/topics/Gauss Elimination/"><b>Gauss Elimination</b></a> [1]
+       </div> 
        <div class="col-xs-4">
         <a href="/topics/Structures/"><b>Structures</b></a> [1]
        </div> 
        <div class="col-xs-4">
-        <a href="/topics/Computer Networks/"><b>Computer Networks</b></a> [1]
-       </div> 
-       <div class="col-xs-4">
-        <a href="/topics/c-lang/"><b>c-lang</b></a> [1]
-       </div> 
-      </div> 
-      <div class="row" style="margin-bottom:8px;"> 
-       <div class="col-xs-4">
-        <a href="/topics/parser/"><b>parser</b></a> [1]
+        <a href="/topics/cryptography/"><b>cryptography</b></a> [1]
        </div> 
       </div>  
      </fieldset> 

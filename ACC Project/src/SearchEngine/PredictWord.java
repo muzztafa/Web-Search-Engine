@@ -48,7 +48,7 @@ public class PredictWord {
 			}
 		}
 		if (!matchFound)
-			System.out.println("Entered word cannot be resolved....");
+			System.out.println("No alternate words could be found....");
 	}
 
 	
